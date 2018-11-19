@@ -12,7 +12,7 @@ namespace Domain
         public virtual int ID { get; private set; }
         public virtual string Nom { get; private set; }
 
-
+        public virtual IList<Sponsorise> Sponsorises { get; set; }
 
         public Sponsor(string nom)
         {

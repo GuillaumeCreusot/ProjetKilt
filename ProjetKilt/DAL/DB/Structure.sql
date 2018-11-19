@@ -30,16 +30,16 @@ create table course (
 
 create table sponsor (
 	id integer not null primary key auto_increment,
-	nom_sponsor string not null
+	nom_sponsor varchar(100) not null
 );
 
 create table participation (
 	id integer not null primary key auto_increment,
 	num_dossard int not null,
 	temps int not null,
-	coureur_id int null,
+	participant_id int null,
 	course_id int null,
-	constraint fk_coureur_participation foreign key(coureur_id) references coureur(id),
+	constraint fk_coureur_participation foreign key(participant_id) references coureur(id),
 	constraint fk_course_participation foreign key(course_id) references course(id)
 );
 

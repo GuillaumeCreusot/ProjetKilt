@@ -13,6 +13,8 @@ namespace Domain
         public virtual string Nom { get; private set; }
         public virtual int Kilometrage { get; private set; }
 
+        public virtual IList<Participation> Participations { get; set; }
+
 
 
         public Course(string nom, int kilometrage)
