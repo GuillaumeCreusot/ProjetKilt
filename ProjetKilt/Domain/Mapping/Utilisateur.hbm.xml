@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="Domain"
+                   namespace="Domain">
+
+  <class name="Coureur" table="coureur">
+    <id name="ID" column="id" type="int">
+      <generator class="native"></generator>
+    </id>
+    <property name="Nom" column="nom" not-null="true"/>
+    <property name="MDPHash" column="mdp_hash" not-null="true"/>
+
+  </class>
+
+</hibernate-mapping>
