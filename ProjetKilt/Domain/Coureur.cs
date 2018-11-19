@@ -19,7 +19,6 @@ namespace Domain
         public virtual DateTime DateNaissance { get; private set; }
 
         public virtual IList<Participation> Participations { get; set; }
-        public virtual IList<Sponsorise> Sponsorises { get; set; }
 
 
 
