@@ -11,8 +11,8 @@
     <property name="NumDossard" column="num_dossard" not-null="true"/>
     <property name="Temps" column="temps" not-null="true"/>
 
-    <many-to-one name="Participant" column="participant_id"/>
-    <many-to-one name="Course" column="course_id"/>
+    <!--<many-to-one name="Participant" column="participant_id"/>
+    <many-to-one name="Course" column="course_id"/>-->
   </class>
 
 </hibernate-mapping>

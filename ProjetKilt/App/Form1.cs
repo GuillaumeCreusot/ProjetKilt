@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
+using Domain;
 
 namespace App
 {
@@ -15,6 +17,15 @@ namespace App
         public Form1()
         {
             InitializeComponent();
+
+            IUserRepository repo = new UserRepository();
+            label1.Text = repo.GetAll().Length.ToString();
+
+            Utilisateur user = new Utilisateur("test", 2132184135);
+            repo.Save(user);
+
+            label1.Text = repo.GetAll().Length.ToString();
+            
         }
     }
 }

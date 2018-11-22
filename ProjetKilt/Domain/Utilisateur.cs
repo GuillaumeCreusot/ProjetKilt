@@ -10,9 +10,9 @@ namespace Domain
     {
 
 
-        public virtual int ID { get; private set; }
-        public virtual string Nom { get; private set; }
-        public virtual int MDPHash { get;  private set; }
+        public virtual int ID { get; set; }
+        public virtual string Nom { get; set; }
+        public virtual int MDPHash { get;  set; }
 
 
 
@@ -20,6 +20,11 @@ namespace Domain
         {
             Nom = nom;
             MDPHash = mdpHash;
+        }
+
+        public Utilisateur()
+        {
+
         }
     }
 

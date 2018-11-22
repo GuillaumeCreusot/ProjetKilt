@@ -9,9 +9,9 @@ namespace Domain
     public class Course
     {
 
-        public virtual int ID { get; private set; }
-        public virtual string Nom { get; private set; }
-        public virtual int Kilometrage { get; private set; }
+        public virtual int ID { get; set; }
+        public virtual string Nom { get; set; }
+        public virtual int Kilometrage { get; set; }
 
         public virtual IList<Participation> Participations { get; set; }
 
@@ -23,6 +23,10 @@ namespace Domain
             Kilometrage = kilometrage;
         }
 
+        public Course()
+        {
+
+        }
 
     }
 }

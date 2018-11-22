@@ -4,7 +4,7 @@
                    assembly="Domain"
                    namespace="Domain">
 
-  <class name="Coureur" table="coureur">
+  <class name="Utilisateur" table="utilisateur">
     <id name="ID" column="id" type="int">
       <generator class="native"></generator>
     </id>

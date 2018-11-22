@@ -9,17 +9,17 @@ namespace Domain
     public class Participation
     {
 
-        public virtual int ID { get; private set; }
-        public virtual Coureur Participant { get; private set; }
-        public virtual Course Course { get; private set; }
-        public virtual int NumDossard { get; private set; }
-        public virtual DateTime Temps { get; private set; }
+        public virtual int ID { get; set; }
+        public virtual Coureur Participant { get; set; }
+        public virtual Course Course { get; set; }
+        public virtual int NumDossard { get; set; }
+        public virtual DateTime Temps { get; set; }
 
 
 
-        public int Classement { get; private set; }
-        public double VitesseMoyenne { get; private set; }
-        public double AllureMoyenne { get; private set; }
+        //public int Classement { get; private set; }
+        //public double VitesseMoyenne { get; private set; }
+        //public double AllureMoyenne { get; private set; }
 
 
 
@@ -29,6 +29,11 @@ namespace Domain
             Course = course;
             NumDossard = numDossard;
             Temps = temps;
+        }
+
+        public Participation()
+        {
+
         }
     }
 }

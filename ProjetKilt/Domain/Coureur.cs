@@ -10,19 +10,19 @@ namespace Domain
     {
 
 
-        public virtual int ID { get; private set; }
-        public virtual string Nom { get; private set; }
-        public virtual string Prenom { get; private set; }
-        public virtual string LicenceFFA { get; private set; }
-        public virtual string Mail { get; private set; }
-        public virtual string Sexe { get; private set; }
-        public virtual DateTime DateNaissance { get; private set; }
+        public virtual int ID { get; set; }
+        public virtual string Nom { get; set; }
+        public virtual string Prenom { get; set; }
+        public virtual string LicenceFFA { get; set; }
+        public virtual string Mail { get; set; }
+        public virtual string Sexe { get; set; }
+        public virtual DateTime DateNaissance { get; set; }
 
         public virtual IList<Participation> Participations { get; set; }
 
 
-
-        public int Age { get; private set; }
+        
+        //public int Age { get; private set; }
 
 
 
@@ -34,6 +34,12 @@ namespace Domain
             Mail = mail;
             Sexe = sexe;
             DateNaissance = dateNaissance;
+        }
+
+
+        public Coureur()
+        {
+
         }
     }
 }
