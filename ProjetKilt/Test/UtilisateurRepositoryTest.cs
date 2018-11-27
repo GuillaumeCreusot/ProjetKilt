@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DAL;
 using Domain;
+using System.Collections.Generic;
 
 namespace Test
 {
@@ -19,10 +20,9 @@ namespace Test
             Utilisateur user3 = new Utilisateur("user3", 3);
             users.Save(user3);
 
-            Utilisateur[] result  = users.GetAll();
+            List<Utilisateur> list = new List<Utilisateur>(users.GetAll());
 
-
-            
+            Assert.IsTrue(list.Contains(user1) && list.Contains(user2) && list.Contains(user3));
         }
     }
 }
