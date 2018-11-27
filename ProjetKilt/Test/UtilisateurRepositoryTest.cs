@@ -18,6 +18,11 @@ namespace Test
             users.Save(user2);
             Utilisateur user3 = new Utilisateur("user3", 3);
             users.Save(user3);
+
+            Utilisateur[] result  = users.GetAll();
+
+
+            
         }
     }
 }
