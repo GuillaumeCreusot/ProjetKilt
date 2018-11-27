@@ -1,15 +1,13 @@
 ﻿drop table if exists courreur;
 drop table if exists course;
 drop table if exists participation;
-drop table if exists sponsorise;
-drop table if exists sponsor;
 drop table if exists utilisateur;
 
 
 create table utilisateur (
     id integer not null primary key auto_increment,
     nom varchar(100) not null,
-    mdp_hash int not null
+    mdp_hash binary(64) not null
 );
 
 create table coureur (

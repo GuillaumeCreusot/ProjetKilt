@@ -17,14 +17,6 @@ namespace App
         public Form1()
         {
             InitializeComponent();
-
-            IUtilisateurRepository repo = new UtilisateurRepository();
-            label1.Text = repo.GetAll().Length.ToString();
-
-            Utilisateur user = new Utilisateur("test", 2132184135);
-            repo.Save(user);
-
-            label1.Text = repo.GetAll().Length.ToString();
             
         }
     }

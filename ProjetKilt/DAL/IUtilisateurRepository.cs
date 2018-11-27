@@ -11,6 +11,8 @@ namespace DAL
     {
         Utilisateur[] GetAll();
 
+        bool Connect(Utilisateur user);
+
         void Save(Utilisateur user);
     }
 }
