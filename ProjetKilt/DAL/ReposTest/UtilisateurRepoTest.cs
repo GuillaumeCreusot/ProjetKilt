@@ -16,15 +16,23 @@ namespace DAL
         {
             UtilisateurCollection = new List<Utilisateur>();
 
-            Utilisateur utilisateur1 = new Utilisateur("utilisateur1", 1);
+            Utilisateur utilisateur1 = new Utilisateur("utilisateur1", "1");
             UtilisateurCollection.Add(utilisateur1);
-            Utilisateur utilisateur2 = new Utilisateur("utilisateur2", 2);
+            Utilisateur utilisateur2 = new Utilisateur("utilisateur2", "2");
             UtilisateurCollection.Add(utilisateur2);
-            Utilisateur utilisateur3 = new Utilisateur("utilisateur3", 3);
+            Utilisateur utilisateur3 = new Utilisateur("utilisateur3", "3");
             UtilisateurCollection.Add(utilisateur3);
         }
 
+        public bool Connect(Utilisateur user)
+        {
+            return UtilisateurCollection.Contains(user);
+        }
 
+        public bool Exist(string name)
+        {
+            return UtilisateurCollection.Where((u) => u.Nom == name).Count() != 0;
+        }
 
         public Utilisateur[] GetAll()
         {

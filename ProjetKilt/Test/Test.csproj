@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="CoureurRepositoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UtilisateurRepositoryTest.cs" />
+    <Compile Include="UtilisateurUT.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\App\App.csproj">
