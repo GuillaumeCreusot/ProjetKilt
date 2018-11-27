@@ -18,7 +18,7 @@ namespace App
         {
             InitializeComponent();
 
-            IUserRepository repo = new UserRepository();
+            IUtilisateurRepository repo = new UtilisateurRepository();
             label1.Text = repo.GetAll().Length.ToString();
 
             Utilisateur user = new Utilisateur("test", 2132184135);

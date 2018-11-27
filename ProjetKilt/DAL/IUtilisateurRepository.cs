@@ -7,7 +7,7 @@ using Domain;
 
 namespace DAL
 {
-    public interface IUserRepository
+    public interface IUtilisateurRepository
     {
         Utilisateur[] GetAll();
 
