@@ -20,10 +20,9 @@ namespace DAL
             return user == user2;
         }
 
-        public bool UserExist()
+        public bool Exist(string name)
         {
-
-            return false;
+            return Session.Query<Utilisateur>().Where((u) => u.Nom == name).Count() != 0;
         }
 
         public Utilisateur[] GetAll()

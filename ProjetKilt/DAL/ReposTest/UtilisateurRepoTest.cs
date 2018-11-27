@@ -29,6 +29,11 @@ namespace DAL
             return UtilisateurCollection.Contains(user);
         }
 
+        public bool Exist(string name)
+        {
+            return UtilisateurCollection.Where((u) => u.Nom == name).Count() != 0;
+        }
+
         public Utilisateur[] GetAll()
         {
 

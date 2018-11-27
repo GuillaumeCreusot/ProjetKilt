@@ -13,6 +13,8 @@ namespace DAL
 
         bool Connect(Utilisateur user);
 
+        bool Exist(string name);
+
         void Save(Utilisateur user);
     }
 }
