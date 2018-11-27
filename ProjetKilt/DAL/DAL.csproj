@@ -60,16 +60,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUtilisateurRepository.cs" />
-    <Compile Include="CoureurRepository.cs" />
-    <Compile Include="CourseRepository.cs" />
-    <Compile Include="ICoureurRepository.cs" />
-    <Compile Include="ICourseRepository.cs" />
-    <Compile Include="IParticipationRepository.cs" />
-    <Compile Include="ParticipationRepository.cs" />
+    <Compile Include="ReposTest\CourseRepoTest.cs" />
+    <Compile Include="ReposTest\CoureurRepoTest.cs" />
+    <Compile Include="IRepos\IUtilisateurRepository.cs" />
+    <Compile Include="ReposTest\ParticipationRepoTest.cs" />
+    <Compile Include="ReposTest\UtilisateurRepoTest.cs" />
+    <Compile Include="Repos\CoureurRepository.cs" />
+    <Compile Include="Repos\CourseRepository.cs" />
+    <Compile Include="IRepos\ICoureurRepository.cs" />
+    <Compile Include="IRepos\ICourseRepository.cs" />
+    <Compile Include="IRepos\IParticipationRepository.cs" />
+    <Compile Include="Repos\ParticipationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="UtilisateurRepository.cs" />
+    <Compile Include="Repos\UtilisateurRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
