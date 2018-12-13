@@ -23,11 +23,11 @@ namespace DAL
             Course course1 = new Course("course1", 1);
             Course course2 = new Course("course2", 2);
 
-            Participation participation1 = new Participation(coureur1, course1, 042, DateTime.Now);
+            Participation participation1 = new Participation(coureur1, course1, 042, 10);
             ParticipationCollection.Add(participation1);
-            Participation participation2 = new Participation(coureur2, course1, 240, DateTime.Now);
+            Participation participation2 = new Participation(coureur2, course1, 240, 12);
             ParticipationCollection.Add(participation2);
-            Participation participation3 = new Participation(coureur1, course2, 420, DateTime.Now);
+            Participation participation3 = new Participation(coureur1, course2, 420, 110);
             ParticipationCollection.Add(participation3);
         }
 
