@@ -19,12 +19,13 @@ namespace App
             InitializeComponent();
 
             ICoureurRepository CoureurRepo = new CoureurRepository();
-            ICourseRepository Courserepo = new CourseRepository();
+            ICourseRepository CourseRepo = new CourseRepository();
             IUtilisateurRepository UserRepo = new UtilisateurRepository();
             IParticipationRepository ParticipationRepo = new ParticipationRepository();
 
             Console.WriteLine("----------------------Début Debug---------------------");
-            foreach (Course course in Courserepo.GetAll())
+
+            foreach (Course course in CourseRepo.GetAll())
             {
                 Console.WriteLine(course.Nom);
                 listBoxCourses.Items.Add(course.Nom);
