@@ -129,11 +129,17 @@ namespace App
 
         private void Connexion()
         {
-            UtilisateurConnecté = new Utilisateur("Utilisateur", "MDP");//TODO: Form de connexion
-            buttonImport.Enabled = true;
-            dataGridViewCoureurs.ReadOnly = false;
-            buttonIdentification.Text = "Se déconnecter";
-            labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
+            Connexion Connexion = new Connexion();
+            Connexion.ShowDialog();
+            if (Connexion.User != null)
+            {
+                UtilisateurConnecté = Connexion.User;
+                buttonImport.Enabled = true;
+                dataGridViewCoureurs.ReadOnly = false;
+                buttonIdentification.Text = "Se déconnecter";
+                labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
+            }
+            
         }
     }
 }
