@@ -46,6 +46,7 @@
             this.Sexe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LicenceFFA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelConnexion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoureurs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +106,7 @@
             this.buttonIdentification.TabIndex = 4;
             this.buttonIdentification.Text = "S\'identifier";
             this.buttonIdentification.UseVisualStyleBackColor = true;
+            this.buttonIdentification.Click += new System.EventHandler(this.buttonIdentification_Click);
             // 
             // textBoxSearch
             // 
@@ -191,11 +193,21 @@
             this.LicenceFFA.Name = "LicenceFFA";
             this.LicenceFFA.ReadOnly = true;
             // 
+            // labelConnexion
+            // 
+            this.labelConnexion.AutoSize = true;
+            this.labelConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConnexion.Location = new System.Drawing.Point(163, 13);
+            this.labelConnexion.Name = "labelConnexion";
+            this.labelConnexion.Size = new System.Drawing.Size(0, 24);
+            this.labelConnexion.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1219, 623);
+            this.Controls.Add(this.labelConnexion);
             this.Controls.Add(this.comboBoxFilters);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.textBoxSearch);
@@ -233,6 +245,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sexe;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mail;
         private System.Windows.Forms.DataGridViewTextBoxColumn LicenceFFA;
+        private System.Windows.Forms.Label labelConnexion;
     }
 }
 

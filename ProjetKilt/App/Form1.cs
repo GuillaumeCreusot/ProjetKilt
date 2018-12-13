@@ -19,6 +19,7 @@ namespace App
         private ICourseRepository CourseRepo { get; set; }
         private IUtilisateurRepository UserRepo { get; set; }
         private IParticipationRepository ParticipationRepo { get; set; }
+        private Utilisateur UtilisateurConnecté { get; set; }
 
 
         public Form1()
@@ -103,6 +104,36 @@ namespace App
         private void listBoxCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
             ReloadDataGridView();
+        }
+
+        private void buttonIdentification_Click(object sender, EventArgs e)
+        {
+            if (buttonIdentification.Text == "S'identifier")
+            {
+                Connexion();
+            }
+            else if(buttonIdentification.Text == "Se déconnecter")
+            {
+                Déconnexion();
+            }
+        }
+
+        private void Déconnexion()
+        {
+            UtilisateurConnecté = null;
+            buttonImport.Enabled = false;
+            dataGridViewCoureurs.ReadOnly = true;
+            buttonIdentification.Text = "S'identifier";
+            labelConnexion.Text = "";
+        }
+
+        private void Connexion()
+        {
+            UtilisateurConnecté = new Utilisateur("Utilisateur", "MDP");//TODO: Form de connexion
+            buttonImport.Enabled = true;
+            dataGridViewCoureurs.ReadOnly = false;
+            buttonIdentification.Text = "Se déconnecter";
+            labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
         }
     }
 }
