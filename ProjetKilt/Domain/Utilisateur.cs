@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace Domain
 {
-    public class Utilisateur
+    public class Utilisateur : IEntity
     {
         public static SHA256 crypter = new SHA256CryptoServiceProvider();
 

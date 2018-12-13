@@ -25,15 +25,14 @@ namespace DAL
             return Session.Query<Utilisateur>().Where((u) => u.Nom == name).Count() != 0;
         }
 
-        public Utilisateur[] GetAll()
+        public List<Utilisateur> GetAll()
         {
-            return Session.Query<Utilisateur>().ToArray();
+            throw new NotImplementedException();
         }
 
         public void Save(Utilisateur user)
         {
-            Session.SaveOrUpdate(user);
-            Session.Flush();
+            throw new NotImplementedException();
         }
     }
 }

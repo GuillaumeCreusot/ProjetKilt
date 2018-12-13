@@ -9,8 +9,14 @@ namespace DAL
 {
     public interface IParticipationRepository
     {
-        Participation[] GetAll();
+        List<Participation> GetAll();
 
-        void Save(Participation user);
+        void Save(Participation part);
+
+        bool Exist(Participation part);
+
+        void Delete(Participation part);
+
+        void DeleteALL();
     }
 }

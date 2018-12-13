@@ -9,15 +9,29 @@ namespace DAL
 {
     public class CourseRepository : Repository, ICourseRepository
     {
-        public Course[] GetAll()
+        public void Delete(Course course)
         {
-            return Session.Query<Course>().ToArray();
+            Session.Delete(course);
+        }
+
+        public void DeleteALL()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Exist(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Course> GetAll()
+        {
+            throw new NotImplementedException();
         }
 
         public void Save(Course course)
         {
-            Session.SaveOrUpdate(course);
-            Session.Flush();
+            throw new NotImplementedException();
         }
     }
 }

@@ -9,15 +9,29 @@ namespace DAL
 {
     public class ParticipationRepository : Repository, IParticipationRepository
     {
-        public Participation[] GetAll()
+        public void Delete(Participation part)
         {
-            return Session.Query<Participation>().ToArray();
+            throw new NotImplementedException();
+        }
+
+        public void DeleteALL()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Exist(Participation part)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Participation> GetAll()
+        {
+            throw new NotImplementedException();
         }
 
         public void Save(Participation part)
         {
-            Session.SaveOrUpdate(part);
-            Session.Flush();
+            throw new NotImplementedException();
         }
     }
 }

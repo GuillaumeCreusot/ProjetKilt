@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRepos\IRepository.cs" />
     <Compile Include="ReposTest\CourseRepoTest.cs" />
     <Compile Include="ReposTest\CoureurRepoTest.cs" />
     <Compile Include="IRepos\IUtilisateurRepository.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="IRepos\IParticipationRepository.cs" />
     <Compile Include="Repos\ParticipationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
+    <Compile Include="Repos\Repository.cs" />
     <Compile Include="Repos\UtilisateurRepository.cs" />
   </ItemGroup>
   <ItemGroup>

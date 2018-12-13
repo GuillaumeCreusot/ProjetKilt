@@ -45,5 +45,10 @@ namespace DAL
         {
             UtilisateurCollection.Add(utilisateur);
         }
+
+        List<Utilisateur> IUtilisateurRepository.GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
