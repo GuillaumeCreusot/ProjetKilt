@@ -24,12 +24,25 @@ namespace DAL
             CourseCollection.Add(course3);
         }
 
+        public void Delete(Course course)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void DeleteALL()
+        {
+            throw new NotImplementedException();
+        }
 
-        public Course[] GetAll()
+        public bool Exist(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Course> GetAll()
         {
 
-            return CourseCollection.ToArray();
+            return CourseCollection;
 
         }
 

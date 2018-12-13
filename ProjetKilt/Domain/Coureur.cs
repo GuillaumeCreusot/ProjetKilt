@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Coureur
+    public class Coureur : IEntity
     {
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Participation
+    public class Participation : IEntity
     {
 
         public virtual int ID { get; set; }

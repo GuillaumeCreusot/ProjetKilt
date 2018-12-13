@@ -9,7 +9,7 @@ namespace DAL
 {
     public interface ICoureurRepository
     {
-        Coureur[] GetAll();
+        List<Coureur> GetAll();
 
         void Save(Coureur coureur);
 

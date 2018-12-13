@@ -11,22 +11,22 @@ namespace DAL
     {
         public void Delete(Coureur coureur)
         {
-            throw new NotImplementedException();
+            Session.Delete(coureur);
         }
 
         public void DeleteALL()
         {
-            throw new NotImplementedException();
+            Session.CreateQuery("delete from Coureur").ExecuteUpdate();
         }
 
         public bool Exist(Coureur coureur)
         {
-            return Session.Query<Coureur>().Where((c) => c == coureur).LastOrDefault() != null;
+            return (long)Session.CreateQuery($"Select Count(*) from Coureur c where c.ID == coureur.ID").UniqueResult() > 0;
         }
 
-        public Coureur[] GetAll()
+        public List<Coureur> GetAll()
         {
-            return Session.Query<Coureur>().ToArray();
+            return Session.Query<Coureur>().ToList();
         }
 
         public void Save(Coureur coureur)
@@ -34,7 +34,5 @@ namespace DAL
             Session.SaveOrUpdate(coureur);
             Session.Flush();
         }
-
-
     }
 }

@@ -39,10 +39,10 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Coureur[] GetAll()
+        public List<Coureur> GetAll()
         {
 
-            return CoureurCollection.ToArray();
+            return CoureurCollection;
 
         }
 

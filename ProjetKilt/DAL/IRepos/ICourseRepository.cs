@@ -9,8 +9,14 @@ namespace DAL
 {
     public interface ICourseRepository
     {
-        Course[] GetAll();
+        List<Course> GetAll();
 
-        void Save(Course user);
+        void Save(Course course);
+
+        bool Exist(Course course);
+
+        void Delete(Course course);
+
+        void DeleteALL();
     }
 }

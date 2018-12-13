@@ -31,7 +31,20 @@ namespace DAL
             ParticipationCollection.Add(participation3);
         }
 
+        public void Delete(Participation part)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void DeleteALL()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Exist(Participation part)
+        {
+            throw new NotImplementedException();
+        }
 
         public Participation[] GetAll()
         {
@@ -43,6 +56,11 @@ namespace DAL
         public void Save(Participation participation)
         {
             ParticipationCollection.Add(participation);
+        }
+
+        List<Participation> IParticipationRepository.GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

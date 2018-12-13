@@ -9,11 +9,11 @@ namespace DAL
 {
     public interface IUtilisateurRepository
     {
-        Utilisateur[] GetAll();
-
         bool Connect(Utilisateur user);
 
         bool Exist(string name);
+
+        List<Utilisateur> GetAll();
 
         void Save(Utilisateur user);
     }
