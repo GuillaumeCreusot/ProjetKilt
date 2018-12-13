@@ -24,7 +24,20 @@ namespace DAL
             CoureurCollection.Add(coureur3);
         }
 
+        public void Delete(Coureur coureur)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void DeleteALL()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Exist(Coureur coureur)
+        {
+            throw new NotImplementedException();
+        }
 
         public Coureur[] GetAll()
         {

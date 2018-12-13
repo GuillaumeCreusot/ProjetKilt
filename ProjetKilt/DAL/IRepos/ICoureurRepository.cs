@@ -11,6 +11,12 @@ namespace DAL
     {
         Coureur[] GetAll();
 
-        void Save(Coureur user);
+        void Save(Coureur coureur);
+
+        bool Exist(Coureur coureur);
+
+        void Delete(Coureur coureur);
+
+        void DeleteALL();
     }
 }
