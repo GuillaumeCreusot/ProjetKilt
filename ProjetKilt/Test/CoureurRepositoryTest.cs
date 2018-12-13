@@ -25,8 +25,27 @@ namespace Test
 
             Coureur[] result = coureurs.GetAll();
 
-
-
+            Assert.IsTrue(result.Contains(coureur1));
+            Assert.IsTrue(result.Contains(coureur2));
+            Assert.IsTrue(result.Contains(coureur3));
         }
+
+        [TestMethod]
+        public void TestDeleteCoureur()
+        {
+            ICoureurRepository coureurs = new CoureurRepository();
+            Coureur coureur1 = new Coureur("coureur1", "1", "XXXXXXXXX", "XXX@gmail.com", "X", DateTime.Today);
+            coureurs.Save(coureur1);
+            Coureur coureur2 = new Coureur("coureur2", "2", "XXXXXXXXX", "XXX@gmail.com", "X", DateTime.Today);
+            coureurs.Save(coureur2);
+
+            coureurs.Delete(coureur2);
+
+            Coureur[] result = coureurs.GetAll();
+
+            Assert.IsTrue(result.Contains(coureur1));
+            Assert.IsFalse(result.Contains(coureur2));
+        }
+
     }
 }

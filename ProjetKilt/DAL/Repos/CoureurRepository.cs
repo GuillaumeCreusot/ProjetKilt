@@ -9,6 +9,21 @@ namespace DAL
 {
     public class CoureurRepository : Repository, ICoureurRepository
     {
+        public void Delete(Coureur coureur)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteALL()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Exist(Coureur coureur)
+        {
+            return Session.Query<Coureur>().Where((c) => c == coureur).LastOrDefault() != null;
+        }
+
         public Coureur[] GetAll()
         {
             return Session.Query<Coureur>().ToArray();
@@ -19,5 +34,7 @@ namespace DAL
             Session.SaveOrUpdate(coureur);
             Session.Flush();
         }
+
+
     }
 }
