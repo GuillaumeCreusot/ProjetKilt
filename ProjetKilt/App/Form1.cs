@@ -18,13 +18,15 @@ namespace App
         {
             InitializeComponent();
 
-            ICoureurRepository CoureurRepo = new CoureurRepoTest();
-            ICourseRepository Courserepo = new CourseRepoTest();
-            IUtilisateurRepository UserRepo = new UtilisateurRepoTest();
-            IParticipationRepository ParticipationRepo = new ParticipationRepoTest();
+            ICoureurRepository CoureurRepo = new CoureurRepository();
+            ICourseRepository Courserepo = new CourseRepository();
+            IUtilisateurRepository UserRepo = new UtilisateurRepository();
+            IParticipationRepository ParticipationRepo = new ParticipationRepository();
 
-            foreach(Course course in Courserepo.GetAll())
+            Console.WriteLine("----------------------Début Debug---------------------");
+            foreach (Course course in Courserepo.GetAll())
             {
+                Console.WriteLine(course.Nom);
                 listBoxCourses.Items.Add(course.Nom);
                 listBoxCourses.SelectedIndex = 0;
             }
@@ -42,14 +44,16 @@ namespace App
         private void textBoxSearch_FocusChanged(object sender, EventArgs e)
         {
             TextBox textbox = ((TextBox)sender);
+            if (textbox.Text == "")
+                ((TextBox)sender).Text = "Rechercher...";
+        }
+
+        private void textBoxSearch_Click(object sender, EventArgs e)
+        {
+            TextBox textbox = ((TextBox)sender);
 
             if (textbox.Text == "Rechercher...")
                 ((TextBox)sender).Text = "";
-            else if (textbox.Text == "")
-                ((TextBox)sender).Text = "Rechercher...";
-            progressBar.Value += 4;
-            if(progressBar.Value >= progressBar.Maximum)
-                progressBar.Maximum *= 2;
         }
     }
 }

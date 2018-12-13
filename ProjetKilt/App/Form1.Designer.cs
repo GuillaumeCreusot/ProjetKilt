@@ -219,7 +219,7 @@
             this.textBoxSearch.Size = new System.Drawing.Size(112, 20);
             this.textBoxSearch.TabIndex = 6;
             this.textBoxSearch.Text = "Rechercher...";
-            this.textBoxSearch.Click += new System.EventHandler(this.textBoxSearch_FocusChanged);
+            this.textBoxSearch.Click += new System.EventHandler(this.textBoxSearch_Click);
             this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_FocusChanged);
             // 
             // progressBar
