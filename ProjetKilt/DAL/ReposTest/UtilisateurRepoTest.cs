@@ -29,6 +29,16 @@ namespace DAL
             return UtilisateurCollection.Contains(user);
         }
 
+        public void Delete(Utilisateur user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteALL()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Exist(string name)
         {
             return UtilisateurCollection.Where((u) => u.Nom == name).Count() != 0;
