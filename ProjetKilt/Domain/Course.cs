@@ -28,5 +28,15 @@ namespace Domain
 
         }
 
+        public override bool Equals(object obj)
+        {
+            if(obj is Course)
+            {
+                Course c = (Course)obj;
+                return c.Kilometrage == Kilometrage && c.Nom == Nom;
+            }
+            return false;
+        }
+
     }
 }

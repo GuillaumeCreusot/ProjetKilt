@@ -11,7 +11,9 @@ namespace DAL
     {
         public void Delete(Coureur coureur)
         {
-            Session.Delete(coureur);
+            var query = Session.CreateQuery("delete from Coureur where Id = :Id");
+            query.SetParameter("Id", coureur.ID);
+            query.ExecuteUpdate();
         }
 
         public void DeleteALL()
@@ -21,7 +23,7 @@ namespace DAL
 
         public bool Exist(Coureur coureur)
         {
-            return (long)Session.CreateQuery($"Select Count(*) from Coureur c where c.ID == coureur.ID").UniqueResult() > 0;
+            return Session.Query<Coureur>().Any(c => c == coureur);
         }
 
         public List<Coureur> GetAll()

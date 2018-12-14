@@ -35,5 +35,15 @@ namespace Domain
         {
 
         }
+
+        public override bool Equals(object obj)
+        {
+            if(obj is Participation)
+            {
+                Participation p = (Participation)obj;
+                return p.NumDossard == NumDossard;
+            }
+            return false;
+        }
     }
 }

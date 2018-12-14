@@ -20,19 +20,33 @@ namespace DAL
             return user == user2;
         }
 
+        public void Delete(Utilisateur user)
+        {
+            var query = Session.CreateQuery("delete from Utilisateur where Nom = :nom and MDPHash = :mdp");
+            query.SetParameter("nom", user.Nom);
+            query.SetParameter("mdp", user.MDPHash);
+            query.ExecuteUpdate();
+        }
+
+        public void DeleteALL()
+        {
+            Session.CreateQuery("delete from Utilisateur").ExecuteUpdate();
+        }
+
         public bool Exist(string name)
         {
-            return Session.Query<Utilisateur>().Where((u) => u.Nom == name).Count() != 0;
+            return Session.Query<Utilisateur>().Any(c => c.Nom == name);
         }
 
         public List<Utilisateur> GetAll()
         {
-            throw new NotImplementedException();
+            return Session.Query<Utilisateur>().ToList();
         }
 
         public void Save(Utilisateur user)
         {
-            throw new NotImplementedException();
+            Session.SaveOrUpdate(user);
+            Session.Flush();
         }
     }
 }

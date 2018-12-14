@@ -16,5 +16,9 @@ namespace DAL
         List<Utilisateur> GetAll();
 
         void Save(Utilisateur user);
+
+        void Delete(Utilisateur user);
+
+        void DeleteALL();
     }
 }

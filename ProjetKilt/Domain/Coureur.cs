@@ -36,6 +36,16 @@ namespace Domain
             DateNaissance = dateNaissance;
         }
 
+        public override bool Equals(object obj)
+        {
+            if(obj is Coureur)
+            {
+                Coureur c = (Coureur)obj;
+                return c.LicenceFFA == LicenceFFA && c.Nom == Nom && c.Prenom == Prenom
+                    && c.Mail == Mail && c.Sexe == Sexe && c.DateNaissance == DateNaissance;
+            }
+            return false;
+        }
 
         public Coureur()
         {

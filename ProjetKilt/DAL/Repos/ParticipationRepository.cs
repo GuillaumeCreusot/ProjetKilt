@@ -11,27 +11,30 @@ namespace DAL
     {
         public void Delete(Participation part)
         {
-            throw new NotImplementedException();
+            var query = Session.CreateQuery("delete from Participation where Id = :Id");
+            query.SetParameter("Id", part.ID);
+            query.ExecuteUpdate();
         }
 
         public void DeleteALL()
         {
-            throw new NotImplementedException();
+            Session.CreateQuery("delete from Participation").ExecuteUpdate();
         }
 
         public bool Exist(Participation part)
         {
-            throw new NotImplementedException();
+            return Session.Query<Participation>().Any(c => c == part);
         }
 
         public List<Participation> GetAll()
         {
-            throw new NotImplementedException();
+            return Session.Query<Participation>().ToList();
         }
 
         public void Save(Participation part)
         {
-            throw new NotImplementedException();
+            Session.SaveOrUpdate(part);
+            Session.Flush();
         }
     }
 }
