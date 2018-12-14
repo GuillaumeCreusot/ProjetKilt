@@ -21,10 +21,7 @@ namespace App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            //Utilisateur user = new Utilisateur("Utilisateur", "MDP");
-            //Console.WriteLine(String.Join("", user.MDPHash));
-            //15112197219145891274157616724218510817136252737015419615822418216916320823413958144242
+            
         }
     }
 }

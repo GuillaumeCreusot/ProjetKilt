@@ -17,7 +17,6 @@ namespace App
 
         private ICoureurRepository CoureurRepo { get; set; }
         private ICourseRepository CourseRepo { get; set; }
-        private IUtilisateurRepository UserRepo { get; set; }
         private IParticipationRepository ParticipationRepo { get; set; }
         private Utilisateur UtilisateurConnecté { get; set; }
 
@@ -28,7 +27,6 @@ namespace App
 
             CoureurRepo = new CoureurRepository();
             CourseRepo = new CourseRepository();
-            UserRepo = new UtilisateurRepository();
             ParticipationRepo = new ParticipationRepository();
 
 
