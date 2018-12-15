@@ -13,6 +13,8 @@ namespace DAL
 
         bool Exist(string name);
 
+        bool Exist(Utilisateur user);
+
         List<Utilisateur> GetAll();
 
         void Save(Utilisateur user);

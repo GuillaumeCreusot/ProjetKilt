@@ -24,10 +24,7 @@ namespace DAL
 
         public void Delete(Utilisateur user)
         {
-            var query = Session.CreateQuery("delete from Utilisateur where Nom = :nom and MDPHash = :mdp");
-            query.SetParameter("nom", user.Nom);
-            query.SetParameter("mdp", user.MDPHash);
-            query.ExecuteUpdate();
+            Session.Delete(user);
         }
 
         public void DeleteALL()
@@ -38,6 +35,11 @@ namespace DAL
         public bool Exist(string name)
         {
             return Session.Query<Utilisateur>().Any(c => c.Nom == name);
+        }
+
+        public bool Exist(Utilisateur user)
+        {
+            return Session.Query<Utilisateur>().Any(c => c.Nom == user.Nom);
         }
 
         public List<Utilisateur> GetAll()

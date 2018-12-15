@@ -116,5 +116,23 @@ namespace Test
 
 
         }
+
+        [TestMethod]
+        public void TestConnection()
+        {
+            IUtilisateurRepository users = new UtilisateurRepository();
+
+            users.DeleteALL();
+
+            Utilisateur user1 = new Utilisateur("test", "J'aime les licornes");
+            Utilisateur user2 = new Utilisateur("test", "123");
+
+            users.Save(user1);
+
+            Assert.IsTrue(users.Exist(user1));
+
+            Assert.IsTrue(users.Connect(user1));
+            Assert.IsFalse(users.Connect(user2));
+        }
     }
 }

@@ -44,6 +44,11 @@ namespace DAL
             return UtilisateurCollection.Where((u) => u.Nom == name).Count() != 0;
         }
 
+        public bool Exist(Utilisateur user)
+        {
+            throw new NotImplementedException();
+        }
+
         public Utilisateur[] GetAll()
         {
 
