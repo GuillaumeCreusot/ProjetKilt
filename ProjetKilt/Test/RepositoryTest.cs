@@ -126,6 +126,7 @@ namespace Test
 
             Utilisateur user1 = new Utilisateur("test", "J'aime les licornes");
             Utilisateur user2 = new Utilisateur("test", "123");
+            Utilisateur user1b = new Utilisateur("test", "J'aime les licornes");
 
             users.Save(user1);
 
@@ -133,6 +134,8 @@ namespace Test
 
             Assert.IsTrue(users.Connect(user1));
             Assert.IsFalse(users.Connect(user2));
+
+            Assert.IsTrue(users.Connect(user1b));
         }
     }
 }

@@ -26,12 +26,14 @@ namespace Test
         public void TestHashIsEqual()
         {
             string mdp1  = "j'aime les licornes";
+            string mdp1b = "j'aime les licornes";
             string mdp2 = "j'aime la licorne";
 
             byte[] hash1 = Utilisateur.HashMDP(mdp1);
+            byte[] hash1b = Utilisateur.HashMDP(mdp1b);
             byte[] hash2 = Utilisateur.HashMDP(mdp2);
 
-            Assert.IsTrue(Utilisateur.HashIsEqual(hash1, hash1));
+            Assert.IsTrue(Utilisateur.HashIsEqual(hash1, hash1b));
             Assert.IsFalse(Utilisateur.HashIsEqual(hash1, hash2));
         }
 

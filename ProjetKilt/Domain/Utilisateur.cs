@@ -38,7 +38,8 @@ namespace Domain
         {
             if(obj is Utilisateur)
             {
-                return ((Utilisateur)obj).Nom == Nom && Utilisateur.HashIsEqual(((Utilisateur)obj).MDPHash, MDPHash);
+                Utilisateur user = (Utilisateur)obj;
+                return (user.Nom == Nom && Utilisateur.HashIsEqual(user.MDPHash, MDPHash));
             }
 
             return false;

@@ -19,7 +19,7 @@ namespace DAL
             {
                 return false;
             }
-            return user == user2;
+            return user.Equals(user2);
         }
 
         public void Delete(Utilisateur user)

@@ -7,7 +7,7 @@ drop table if exists utilisateur;
 create table utilisateur (
     id integer not null primary key auto_increment,
     nom varchar(100) not null,
-    mdp_hash binary(64) not null
+    mdp_hash binary(32) not null
 );
 
 create table coureur (
