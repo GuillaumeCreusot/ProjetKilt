@@ -18,5 +18,7 @@ namespace DAL
         void Delete(Course course);
 
         void DeleteALL();
+
+        void Flush();
     }
 }

@@ -11,7 +11,8 @@ namespace DAL
     {
         public bool Connect(Utilisateur user)
         {
-            Utilisateur user2 = Session.Query<Utilisateur>().Where((u) => u.Nom == user.Nom).LastOrDefault();
+            List<Utilisateur> query = Session.Query<Utilisateur>().Where((u) => u.Nom == user.Nom).ToList<Utilisateur>();
+            Utilisateur user2 = (query.Count == 0) ? null : query[0];
 
             if(user2 == null)
             {

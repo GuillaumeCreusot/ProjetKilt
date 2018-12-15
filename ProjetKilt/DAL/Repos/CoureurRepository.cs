@@ -34,6 +34,10 @@ namespace DAL
         public void Save(Coureur coureur)
         {
             Session.SaveOrUpdate(coureur);
+        }
+
+        public void Flush()
+        {
             Session.Flush();
         }
     }

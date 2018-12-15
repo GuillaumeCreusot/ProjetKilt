@@ -34,6 +34,10 @@ namespace DAL
         public void Save(Course course)
         {
             Session.SaveOrUpdate(course);
+        }
+
+        public void Flush()
+        {
             Session.Flush();
         }
     }

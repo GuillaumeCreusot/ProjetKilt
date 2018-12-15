@@ -17,7 +17,7 @@ namespace Domain
 
 
 
-        public Course(string nom, int kilometrage)
+        public Course(string nom, int kilometrage) : this()
         {
             Nom = nom;
             Kilometrage = kilometrage;
@@ -25,7 +25,7 @@ namespace Domain
 
         public Course()
         {
-
+            Participations = new List<Participation>();
         }
 
         public override bool Equals(object obj)

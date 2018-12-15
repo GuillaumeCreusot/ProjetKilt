@@ -86,5 +86,40 @@ namespace Test
             Assert.IsTrue(result.Count == 0);
         }
 
+        [TestMethod]
+        public void TestParticipation()
+        {
+            ICoureurRepository coureurs = new CoureurRepository();
+            IParticipationRepository parts = new ParticipationRepository();
+            ICourseRepository courses = new CourseRepository();
+
+            parts.DeleteALL();
+            coureurs.DeleteALL();
+            courses.DeleteALL();
+
+            Coureur coureur1 = new Coureur("coureur1", "1", "XXXXXXXXX", "XXX@gmail.com", "X", DateTime.Today);
+            
+            Course course1 = new Course("", 42);
+            
+            Participation part1 = new Participation(coureur1, course1, 0, 42);
+
+            coureur1.Participations.Add(part1);
+            course1.Participations.Add(part1);
+
+            coureurs.Save(coureur1);
+            courses.Save(course1);
+            parts.Save(part1);
+
+
+            courses.Flush();
+            coureurs.Flush();
+            parts.Flush();
+
+            List<Participation> result = parts.GetAll();
+
+            Assert.IsTrue(result[0].Course == course1);
+
+
+        }
     }
 }

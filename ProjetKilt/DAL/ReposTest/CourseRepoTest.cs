@@ -39,6 +39,11 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        public void Flush()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Course> GetAll()
         {
 

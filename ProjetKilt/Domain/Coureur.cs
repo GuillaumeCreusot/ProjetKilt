@@ -22,11 +22,24 @@ namespace Domain
 
 
         
-        //public int Age { get; private set; }
+        public virtual int Age
+        {
+            get
+            {
+                DateTime today = DateTime.Today;
+                int age = today.Year - DateNaissance.Year;
+                if(!(DateNaissance.Month < today.Month ||
+                    DateNaissance.Month == today.Month && DateNaissance.Day < today.Day))
+                {
+                    age -= 1;
+                }
+                return age;
+            }
+        }
 
 
 
-        public Coureur(string nom, string prenom, string licenceFFA, string mail, string sexe, DateTime dateNaissance)
+        public Coureur(string nom, string prenom, string licenceFFA, string mail, string sexe, DateTime dateNaissance) : this()
         {
             Nom = nom;
             Prenom = prenom;
@@ -49,7 +62,7 @@ namespace Domain
 
         public Coureur()
         {
-
+            Participations = new List<Participation>();
         }
     }
 }

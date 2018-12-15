@@ -18,5 +18,7 @@ namespace DAL
         void Delete(Participation part);
 
         void DeleteALL();
+
+        void Flush();
     }
 }
