@@ -19,6 +19,5 @@ namespace DAL
 
         void DeleteALL();
 
-        void Flush();
     }
 }

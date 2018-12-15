@@ -107,17 +107,12 @@ namespace Test
             course1.Participations.Add(part1);
 
             coureurs.Save(coureur1);
-            courses.Save(course1);
-            parts.Save(part1);
 
+            List<Coureur> result = coureurs.GetAll();
 
-            courses.Flush();
-            coureurs.Flush();
-            parts.Flush();
+            Assert.IsTrue(result[0] == coureur1);
 
-            List<Participation> result = parts.GetAll();
-
-            Assert.IsTrue(result[0].Course == course1);
+            coureurs.DeleteALL();
 
 
         }

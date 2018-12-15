@@ -11,14 +11,22 @@ namespace DAL
     {
         public void Delete(Coureur coureur)
         {
-            var query = Session.CreateQuery("delete from Coureur where Id = :Id");
-            query.SetParameter("Id", coureur.ID);
-            query.ExecuteUpdate();
+            foreach(Participation part in coureur.Participations)
+            {
+                part.Course.Participations.Remove(part);
+                part.Course = null;
+            }
+
+            Session.Delete(coureur);
+            Session.Flush();
         }
 
         public void DeleteALL()
         {
-            Session.CreateQuery("delete from Coureur").ExecuteUpdate();
+            foreach(Coureur c in GetAll())
+            {
+                Delete(c);
+            }
         }
 
         public bool Exist(Coureur coureur)
@@ -34,11 +42,8 @@ namespace DAL
         public void Save(Coureur coureur)
         {
             Session.SaveOrUpdate(coureur);
-        }
-
-        public void Flush()
-        {
             Session.Flush();
         }
+
     }
 }

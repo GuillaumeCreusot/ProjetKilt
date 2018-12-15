@@ -50,13 +50,15 @@
             this.textBoxMDP.Name = "textBoxMDP";
             this.textBoxMDP.Size = new System.Drawing.Size(242, 20);
             this.textBoxMDP.TabIndex = 1;
+            this.textBoxMDP.UseSystemPasswordChar = true;
             // 
             // labelConnexion
             // 
             this.labelConnexion.AutoSize = true;
-            this.labelConnexion.Location = new System.Drawing.Point(176, 99);
+            this.labelConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConnexion.Location = new System.Drawing.Point(128, 97);
             this.labelConnexion.Name = "labelConnexion";
-            this.labelConnexion.Size = new System.Drawing.Size(57, 13);
+            this.labelConnexion.Size = new System.Drawing.Size(152, 31);
             this.labelConnexion.TabIndex = 2;
             this.labelConnexion.Text = "Connexion";
             // 
@@ -70,6 +72,7 @@
             this.labelErreur.Size = new System.Drawing.Size(183, 13);
             this.labelErreur.TabIndex = 3;
             this.labelErreur.Text = "Wallah t\'as cru pouvoir me test";
+            this.labelErreur.Visible = false;
             // 
             // buttonConnexion
             // 
@@ -79,6 +82,7 @@
             this.buttonConnexion.TabIndex = 4;
             this.buttonConnexion.Text = "Se connecter";
             this.buttonConnexion.UseVisualStyleBackColor = true;
+            this.buttonConnexion.Click += new System.EventHandler(this.buttonConnexion_Click);
             // 
             // labelID
             // 

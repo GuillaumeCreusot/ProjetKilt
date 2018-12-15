@@ -11,14 +11,22 @@ namespace DAL
     {
         public void Delete(Course course)
         {
-            var query = Session.CreateQuery("delete from Course where Id = :Id");
-            query.SetParameter("Id", course.ID);
-            query.ExecuteUpdate();
+            foreach (Participation part in course.Participations)
+            {
+                part.Participant.Participations.Remove(part);
+                part.Participant = null;
+            }
+
+            Session.Delete(course);
+            Session.Flush();
         }
 
         public void DeleteALL()
         {
-            Session.CreateQuery("delete from Course").ExecuteUpdate();
+            foreach (Course c in GetAll())
+            {
+                Delete(c);
+            }
         }
 
         public bool Exist(Course course)
@@ -34,10 +42,6 @@ namespace DAL
         public void Save(Course course)
         {
             Session.SaveOrUpdate(course);
-        }
-
-        public void Flush()
-        {
             Session.Flush();
         }
     }

@@ -47,6 +47,8 @@ namespace Domain
             Mail = mail;
             Sexe = sexe;
             DateNaissance = dateNaissance;
+
+            Participations = new List<Participation>();
         }
 
         public override bool Equals(object obj)
@@ -62,7 +64,6 @@ namespace Domain
 
         public Coureur()
         {
-            Participations = new List<Participation>();
         }
     }
 }

@@ -34,10 +34,6 @@ namespace DAL
         public void Save(Participation part)
         {
             Session.SaveOrUpdate(part);
-        }
-
-        public void Flush()
-        {
             Session.Flush();
         }
     }

@@ -18,7 +18,5 @@ namespace DAL
         void Delete(Coureur coureur);
 
         void DeleteALL();
-
-        void Flush();
     }
 }

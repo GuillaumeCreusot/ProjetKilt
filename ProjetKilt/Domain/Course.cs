@@ -21,11 +21,11 @@ namespace Domain
         {
             Nom = nom;
             Kilometrage = kilometrage;
+            Participations = new List<Participation>();
         }
 
         public Course()
         {
-            Participations = new List<Participation>();
         }
 
         public override bool Equals(object obj)

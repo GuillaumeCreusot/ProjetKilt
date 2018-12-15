@@ -16,7 +16,7 @@
     <property name="DateNaissance" column="date_naissance" not-null="true"/>
 
     <bag name="Participations" cascade="all" lazy="true">
-      <key column="coureur_id"/>
+      <key column="participant_id"/>
       <one-to-many class="Participation"/>
     </bag>
 
