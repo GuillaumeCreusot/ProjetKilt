@@ -132,8 +132,8 @@ namespace App
         private void Déconnexion()
         {
             UtilisateurConnecté = null;
-            buttonImport.Enabled = false;
-            dataGridViewCoureurs.ReadOnly = true;
+            buttonImportParti.Enabled = false;
+            buttonImportResultats.Enabled = false;
             buttonIdentification.Text = "S'identifier";
             labelConnexion.Text = "";
         }
@@ -145,8 +145,8 @@ namespace App
             if (Connexion.User != null)
             {
                 UtilisateurConnecté = Connexion.User;
-                buttonImport.Enabled = true;
-                dataGridViewCoureurs.ReadOnly = false;
+                buttonImportParti.Enabled = true;
+                buttonImportResultats.Enabled = true;
                 buttonIdentification.Text = "Se déconnecter";
                 labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
             }

@@ -40,8 +40,8 @@
             this.Sexe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LicenceFFA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonImport = new System.Windows.Forms.Button();
-            this.buttonExport = new System.Windows.Forms.Button();
+            this.buttonImportParti = new System.Windows.Forms.Button();
+            this.buttonImportResultats = new System.Windows.Forms.Button();
             this.buttonIdentification = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -139,24 +139,25 @@
             this.LicenceFFA.Name = "LicenceFFA";
             this.LicenceFFA.ReadOnly = true;
             // 
-            // buttonImport
+            // buttonImportParti
             // 
-            this.buttonImport.Enabled = false;
-            this.buttonImport.Location = new System.Drawing.Point(163, 541);
-            this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(133, 23);
-            this.buttonImport.TabIndex = 2;
-            this.buttonImport.Text = "Importer Coureurs";
-            this.buttonImport.UseVisualStyleBackColor = true;
+            this.buttonImportParti.Enabled = false;
+            this.buttonImportParti.Location = new System.Drawing.Point(163, 541);
+            this.buttonImportParti.Name = "buttonImportParti";
+            this.buttonImportParti.Size = new System.Drawing.Size(133, 23);
+            this.buttonImportParti.TabIndex = 2;
+            this.buttonImportParti.Text = "Importer Participants";
+            this.buttonImportParti.UseVisualStyleBackColor = true;
             // 
-            // buttonExport
+            // buttonImportResultats
             // 
-            this.buttonExport.Location = new System.Drawing.Point(404, 541);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(133, 23);
-            this.buttonExport.TabIndex = 3;
-            this.buttonExport.Text = "Exporter Coureurs";
-            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonImportResultats.Enabled = false;
+            this.buttonImportResultats.Location = new System.Drawing.Point(404, 541);
+            this.buttonImportResultats.Name = "buttonImportResultats";
+            this.buttonImportResultats.Size = new System.Drawing.Size(133, 23);
+            this.buttonImportResultats.TabIndex = 3;
+            this.buttonImportResultats.Text = "Importer Résultats";
+            this.buttonImportResultats.UseVisualStyleBackColor = true;
             // 
             // buttonIdentification
             // 
@@ -214,8 +215,8 @@
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonIdentification);
-            this.Controls.Add(this.buttonExport);
-            this.Controls.Add(this.buttonImport);
+            this.Controls.Add(this.buttonImportResultats);
+            this.Controls.Add(this.buttonImportParti);
             this.Controls.Add(this.dataGridViewCoureurs);
             this.Controls.Add(this.listBoxCourses);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -231,8 +232,8 @@
 
         private System.Windows.Forms.ListBox listBoxCourses;
         private System.Windows.Forms.DataGridView dataGridViewCoureurs;
-        private System.Windows.Forms.Button buttonImport;
-        private System.Windows.Forms.Button buttonExport;
+        private System.Windows.Forms.Button buttonImportParti;
+        private System.Windows.Forms.Button buttonImportResultats;
         private System.Windows.Forms.Button buttonIdentification;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.ProgressBar progressBar;
