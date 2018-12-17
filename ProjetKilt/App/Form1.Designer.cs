@@ -193,6 +193,7 @@
             this.comboBoxFilters.Name = "comboBoxFilters";
             this.comboBoxFilters.Size = new System.Drawing.Size(121, 21);
             this.comboBoxFilters.TabIndex = 9;
+            this.comboBoxFilters.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilters_SelectedIndexChanged);
             // 
             // labelConnexion
             // 

@@ -19,11 +19,14 @@ namespace App
         private ICourseRepository CourseRepo { get; set; }
         private IParticipationRepository ParticipationRepo { get; set; }
         private Utilisateur UtilisateurConnecté { get; set; }
+        private bool Initializing { get; set; }
 
 
         public Form1()
         {
             InitializeComponent();
+
+            Initializing = true;
 
             CoureurRepo = new CoureurRepository();
             CourseRepo = new CourseRepository();
@@ -43,6 +46,8 @@ namespace App
                 comboBoxFilters.Items.Add("Age : " + i + "0-" + (i+1) + "0 ans");
             }
             comboBoxFilters.SelectedIndex = 0;
+
+            Initializing = false;
 
             ReloadDataGridView();
             
@@ -67,7 +72,6 @@ namespace App
 
         private void ReloadDataGridView()
         {
-
             dataGridViewCoureurs.Rows.Clear();
 
             Course course = CourseRepo.GetAll()[listBoxCourses.SelectedIndex];
@@ -82,7 +86,11 @@ namespace App
                 Coureur coureur = CoureurRepo.GetCoureurFromParti(parti);
 
                 string query = textBoxSearch.Text;
-                if (query == "" || query == "Rechercher..." || query == coureur.Nom || query == coureur.Prenom || query == parti.NumDossard.ToString())
+                int indexFilter = comboBoxFilters.SelectedIndex;
+                string filter = comboBoxFilters.Items[indexFilter].ToString();
+                
+                if ((query == "" || query == "Rechercher..." || query == coureur.Nom || query == coureur.Prenom || query == parti.NumDossard.ToString()) &&
+                    (filter == "Aucun filtre" || (coureur.Age >= (indexFilter - 1) * 10 && coureur.Age <= indexFilter * 10)))
                 {
                     DataGridViewRow row = (DataGridViewRow)dataGridViewCoureurs.Rows[0].Clone();
                     row.Cells[0].Value = i + 1; //Classementparti.NumDossard
@@ -105,7 +113,8 @@ namespace App
 
         private void listBoxCourses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReloadDataGridView();
+            if (!Initializing)
+                ReloadDataGridView();
         }
 
         private void buttonIdentification_Click(object sender, EventArgs e)
@@ -146,7 +155,14 @@ namespace App
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            ReloadDataGridView();
+            if (!Initializing)
+                ReloadDataGridView();
+        }
+
+        private void comboBoxFilters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!Initializing)
+                ReloadDataGridView();
         }
     }
 }
