@@ -18,12 +18,9 @@ namespace App
         static void Main()
         {
 
-            IUtilisateurRepository users = new UtilisateurRepository();
-            users.Save(new Utilisateur("admin", "admin"));
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
             
         }
     }

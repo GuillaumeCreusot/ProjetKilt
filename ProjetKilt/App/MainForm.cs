@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using Domain;
+using System.Text.RegularExpressions;
 
 namespace App
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
 
         private ICoureurRepository CoureurRepo { get; set; }
@@ -22,7 +23,7 @@ namespace App
         private bool Initializing { get; set; }
 
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -89,8 +90,12 @@ namespace App
                 int indexFilter = comboBoxFilters.SelectedIndex;
                 string filter = comboBoxFilters.Items[indexFilter].ToString();
                 
-                if ((query == "" || query == "Rechercher..." || query == coureur.Nom || query == coureur.Prenom || query == parti.NumDossard.ToString()) &&
-                    (filter == "Aucun filtre" || (coureur.Age >= (indexFilter - 1) * 10 && coureur.Age <= indexFilter * 10)))
+                if ((query == "" || query == "Rechercher..." ||
+                    Regex.IsMatch(coureur.Nom.ToLower(), $"^{query.ToLower()}" ) ||
+                    Regex.IsMatch(coureur.Prenom.ToLower(), $"^{query.ToLower()}")  ||
+                    Regex.IsMatch(parti.NumDossard.ToString().ToLower(), $"^{query.ToLower()}"))  &&
+                    (filter == "Aucun filtre" ||
+                    (coureur.Age >= (indexFilter - 1) * 10 && coureur.Age <= indexFilter * 10)))
                 {
                     DataGridViewRow row = (DataGridViewRow)dataGridViewCoureurs.Rows[0].Clone();
                     row.Cells[0].Value = i + 1; //Classementparti.NumDossard
