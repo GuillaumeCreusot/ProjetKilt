@@ -70,29 +70,29 @@ namespace App
 
             dataGridViewCoureurs.Rows.Clear();
 
-            List<Participation> Participations = ParticipationRepo.GetAll().ToList();
+            Course course = CourseRepo.GetAll()[listBoxCourses.SelectedIndex];
+
+            List<Participation> Participations = ParticipationRepo.GetPartiFromCourse(course);
             Participations = Participations.OrderBy( e => e.Temps).ToList();
 
             for (int i = 0; i<Participations.Count; i++)
             {
                 Participation parti = Participations[i];
 
-                if (parti.Course.ID == CourseRepo.GetAll()[listBoxCourses.SelectedIndex].ID)
-                {
-                    DataGridViewRow row = (DataGridViewRow)dataGridViewCoureurs.Rows[0].Clone();
-                    row.Cells[0].Value = i; //Classementparti.NumDossard; //Dossard
-                    row.Cells[1].Value = "Name"; //Nom
-                    row.Cells[2].Value = "Prénom"; //PréNom
-                    row.Cells[3].Value = parti.NumDossard; //Dossard
-                    row.Cells[4].Value = Convert.ToDouble(parti.Course.Kilometrage) / Convert.ToDouble(parti.Temps); //Vitesse Moy
-                    row.Cells[5].Value = Convert.ToDouble(parti.Temps) / Convert.ToDouble(parti.Course.Kilometrage); ; //Allure Moy
-                    row.Cells[6].Value = "Age"; //Age
-                    row.Cells[7].Value = "Sexe"; //Sexe
-                    row.Cells[8].Value = "Mail"; //Mail
-                    row.Cells[9].Value = "Licence FFA"; //Licence FFA
-                    dataGridViewCoureurs.Rows.Add(row);
+                Coureur coureur = CoureurRepo.GetCoureurFromParti(parti);
 
-                }
+                DataGridViewRow row = (DataGridViewRow)dataGridViewCoureurs.Rows[0].Clone();
+                row.Cells[0].Value = i + 1; //Classementparti.NumDossard
+                row.Cells[1].Value = coureur.Nom; //Nom
+                row.Cells[2].Value = coureur.Prenom; //PréNom
+                row.Cells[3].Value = parti.NumDossard; //Dossard
+                row.Cells[4].Value = Convert.ToDouble(parti.Course.Kilometrage) / Convert.ToDouble(parti.Temps); //Vitesse Moy
+                row.Cells[5].Value = Convert.ToDouble(parti.Temps) / Convert.ToDouble(parti.Course.Kilometrage); ; //Allure Moy
+                row.Cells[6].Value = coureur.Age; //Age
+                row.Cells[7].Value = coureur.Sexe; //Sexe
+                row.Cells[8].Value = coureur.Mail; //Mail
+                row.Cells[9].Value = coureur.LicenceFFA; //Licence FFA
+                dataGridViewCoureurs.Rows.Add(row);
             }
 
 

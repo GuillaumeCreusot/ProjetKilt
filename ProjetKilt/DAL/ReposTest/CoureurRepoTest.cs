@@ -51,6 +51,11 @@ namespace DAL
 
         }
 
+        public Coureur GetCoureurFromParti(Participation parti)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Save(Coureur coureur)
         {
             CoureurCollection.Add(coureur);

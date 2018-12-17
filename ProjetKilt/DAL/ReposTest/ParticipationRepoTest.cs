@@ -58,6 +58,11 @@ namespace DAL
 
         }
 
+        public List<Participation> GetPartiFromCourse(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Save(Participation participation)
         {
             ParticipationCollection.Add(participation);

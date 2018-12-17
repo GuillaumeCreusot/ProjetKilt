@@ -19,5 +19,7 @@ namespace DAL
 
         void DeleteALL();
 
+        List<Participation> GetPartiFromCourse(Course course);
+
     }
 }

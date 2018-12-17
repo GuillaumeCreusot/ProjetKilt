@@ -52,6 +52,8 @@ namespace Domain
 
         public static bool HashIsEqual(byte[] hash1, byte[] hash2)
         {
+            Console.WriteLine(String.Join("", hash1));
+            Console.WriteLine(String.Join("", hash2));
             return hash1.SequenceEqual(hash2);
         }
 

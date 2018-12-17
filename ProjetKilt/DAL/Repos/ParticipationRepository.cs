@@ -31,6 +31,13 @@ namespace DAL
             return Session.Query<Participation>().ToList();
         }
 
+        public List<Participation> GetPartiFromCourse(Course course)
+        {
+            List<Participation> query = Session.Query<Participation>().Where((u) => u.Course.ID == course.ID).ToList();
+
+            return query;
+        }
+
         public void Save(Participation part)
         {
             Session.SaveOrUpdate(part);

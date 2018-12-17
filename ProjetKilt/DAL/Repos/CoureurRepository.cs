@@ -9,6 +9,15 @@ namespace DAL
 {
     public class CoureurRepository : Repository, ICoureurRepository
     {
+        public Coureur GetCoureurFromParti(Participation parti)
+        {
+
+            List<Coureur> query = Session.Query<Coureur>().Where((u) => u.ID == parti.Participant.ID).ToList();
+            Coureur coureur = (query.Count == 0) ? null : query[0];
+
+            return coureur;
+        }
+
         public void Delete(Coureur coureur)
         {
             foreach(Participation part in coureur.Participations)
