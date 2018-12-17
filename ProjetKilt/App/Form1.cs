@@ -81,18 +81,22 @@ namespace App
 
                 Coureur coureur = CoureurRepo.GetCoureurFromParti(parti);
 
-                DataGridViewRow row = (DataGridViewRow)dataGridViewCoureurs.Rows[0].Clone();
-                row.Cells[0].Value = i + 1; //Classementparti.NumDossard
-                row.Cells[1].Value = coureur.Nom; //Nom
-                row.Cells[2].Value = coureur.Prenom; //PréNom
-                row.Cells[3].Value = parti.NumDossard; //Dossard
-                row.Cells[4].Value = Convert.ToDouble(parti.Course.Kilometrage) / Convert.ToDouble(parti.Temps); //Vitesse Moy
-                row.Cells[5].Value = Convert.ToDouble(parti.Temps) / Convert.ToDouble(parti.Course.Kilometrage); ; //Allure Moy
-                row.Cells[6].Value = coureur.Age; //Age
-                row.Cells[7].Value = coureur.Sexe; //Sexe
-                row.Cells[8].Value = coureur.Mail; //Mail
-                row.Cells[9].Value = coureur.LicenceFFA; //Licence FFA
-                dataGridViewCoureurs.Rows.Add(row);
+                string query = textBoxSearch.Text;
+                if (query == "" || query == "Rechercher..." || query == coureur.Nom || query == coureur.Prenom || query == parti.NumDossard.ToString())
+                {
+                    DataGridViewRow row = (DataGridViewRow)dataGridViewCoureurs.Rows[0].Clone();
+                    row.Cells[0].Value = i + 1; //Classementparti.NumDossard
+                    row.Cells[1].Value = coureur.Nom; //Nom
+                    row.Cells[2].Value = coureur.Prenom; //PréNom
+                    row.Cells[3].Value = parti.NumDossard; //Dossard
+                    row.Cells[4].Value = Convert.ToDouble(parti.Course.Kilometrage) / Convert.ToDouble(parti.Temps); //Vitesse Moy
+                    row.Cells[5].Value = Convert.ToDouble(parti.Temps) / Convert.ToDouble(parti.Course.Kilometrage); ; //Allure Moy
+                    row.Cells[6].Value = coureur.Age; //Age
+                    row.Cells[7].Value = coureur.Sexe; //Sexe
+                    row.Cells[8].Value = coureur.Mail; //Mail
+                    row.Cells[9].Value = coureur.LicenceFFA; //Licence FFA
+                    dataGridViewCoureurs.Rows.Add(row);
+                }
             }
 
 
@@ -138,6 +142,11 @@ namespace App
                 labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
             }
             
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            ReloadDataGridView();
         }
     }
 }

@@ -30,12 +30,6 @@
         {
             this.listBoxCourses = new System.Windows.Forms.ListBox();
             this.dataGridViewCoureurs = new System.Windows.Forms.DataGridView();
-            this.buttonImport = new System.Windows.Forms.Button();
-            this.buttonExport = new System.Windows.Forms.Button();
-            this.buttonIdentification = new System.Windows.Forms.Button();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.comboBoxFilters = new System.Windows.Forms.ComboBox();
             this.Classement = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prénom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +40,12 @@
             this.Sexe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LicenceFFA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonImport = new System.Windows.Forms.Button();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.buttonIdentification = new System.Windows.Forms.Button();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.comboBoxFilters = new System.Windows.Forms.ComboBox();
             this.labelConnexion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoureurs)).BeginInit();
             this.SuspendLayout();
@@ -78,60 +78,6 @@
             this.dataGridViewCoureurs.ReadOnly = true;
             this.dataGridViewCoureurs.Size = new System.Drawing.Size(1044, 331);
             this.dataGridViewCoureurs.TabIndex = 1;
-            // 
-            // buttonImport
-            // 
-            this.buttonImport.Enabled = false;
-            this.buttonImport.Location = new System.Drawing.Point(163, 541);
-            this.buttonImport.Name = "buttonImport";
-            this.buttonImport.Size = new System.Drawing.Size(133, 23);
-            this.buttonImport.TabIndex = 2;
-            this.buttonImport.Text = "Importer Coureurs";
-            this.buttonImport.UseVisualStyleBackColor = true;
-            // 
-            // buttonExport
-            // 
-            this.buttonExport.Location = new System.Drawing.Point(404, 541);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(133, 23);
-            this.buttonExport.TabIndex = 3;
-            this.buttonExport.Text = "Exporter Coureurs";
-            this.buttonExport.UseVisualStyleBackColor = true;
-            // 
-            // buttonIdentification
-            // 
-            this.buttonIdentification.Location = new System.Drawing.Point(1074, 13);
-            this.buttonIdentification.Name = "buttonIdentification";
-            this.buttonIdentification.Size = new System.Drawing.Size(133, 23);
-            this.buttonIdentification.TabIndex = 4;
-            this.buttonIdentification.Text = "S\'identifier";
-            this.buttonIdentification.UseVisualStyleBackColor = true;
-            this.buttonIdentification.Click += new System.EventHandler(this.buttonIdentification_Click);
-            // 
-            // textBoxSearch
-            // 
-            this.textBoxSearch.Location = new System.Drawing.Point(163, 113);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(112, 20);
-            this.textBoxSearch.TabIndex = 6;
-            this.textBoxSearch.Text = "Rechercher...";
-            this.textBoxSearch.Click += new System.EventHandler(this.textBoxSearch_Click);
-            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_FocusChanged);
-            // 
-            // progressBar
-            // 
-            this.progressBar.Location = new System.Drawing.Point(585, 541);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(622, 23);
-            this.progressBar.TabIndex = 7;
-            // 
-            // comboBoxFilters
-            // 
-            this.comboBoxFilters.FormattingEnabled = true;
-            this.comboBoxFilters.Location = new System.Drawing.Point(1086, 113);
-            this.comboBoxFilters.Name = "comboBoxFilters";
-            this.comboBoxFilters.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxFilters.TabIndex = 9;
             // 
             // Classement
             // 
@@ -192,6 +138,61 @@
             this.LicenceFFA.HeaderText = "LicenceFFA";
             this.LicenceFFA.Name = "LicenceFFA";
             this.LicenceFFA.ReadOnly = true;
+            // 
+            // buttonImport
+            // 
+            this.buttonImport.Enabled = false;
+            this.buttonImport.Location = new System.Drawing.Point(163, 541);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(133, 23);
+            this.buttonImport.TabIndex = 2;
+            this.buttonImport.Text = "Importer Coureurs";
+            this.buttonImport.UseVisualStyleBackColor = true;
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.Location = new System.Drawing.Point(404, 541);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(133, 23);
+            this.buttonExport.TabIndex = 3;
+            this.buttonExport.Text = "Exporter Coureurs";
+            this.buttonExport.UseVisualStyleBackColor = true;
+            // 
+            // buttonIdentification
+            // 
+            this.buttonIdentification.Location = new System.Drawing.Point(1074, 13);
+            this.buttonIdentification.Name = "buttonIdentification";
+            this.buttonIdentification.Size = new System.Drawing.Size(133, 23);
+            this.buttonIdentification.TabIndex = 4;
+            this.buttonIdentification.Text = "S\'identifier";
+            this.buttonIdentification.UseVisualStyleBackColor = true;
+            this.buttonIdentification.Click += new System.EventHandler(this.buttonIdentification_Click);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(163, 113);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(112, 20);
+            this.textBoxSearch.TabIndex = 6;
+            this.textBoxSearch.Text = "Rechercher...";
+            this.textBoxSearch.Click += new System.EventHandler(this.textBoxSearch_Click);
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_FocusChanged);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(585, 541);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(622, 23);
+            this.progressBar.TabIndex = 7;
+            // 
+            // comboBoxFilters
+            // 
+            this.comboBoxFilters.FormattingEnabled = true;
+            this.comboBoxFilters.Location = new System.Drawing.Point(1086, 113);
+            this.comboBoxFilters.Name = "comboBoxFilters";
+            this.comboBoxFilters.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFilters.TabIndex = 9;
             // 
             // labelConnexion
             // 
