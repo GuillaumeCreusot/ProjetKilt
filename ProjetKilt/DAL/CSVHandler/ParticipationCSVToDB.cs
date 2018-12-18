@@ -18,9 +18,27 @@ namespace DAL.ImportFromCSVToDB
             Participation part;
             Coureur coureur;
 
+            IParticipationRepository repo = new ParticipationRepository();
+
             for(int i = 0; i < dico[dico.Keys.First()].Count; i++)
             {
-                coureur = new Coureur()
+                coureur = new Coureur(dico["nom"][i]
+                    , dico["prenom"][i]
+                    , dico["license"][i]
+                    , dico["courriel"][i]
+                    , dico["sexe"][i]
+                    ,Convert.ToDateTime(dico["date_naissance"][i]));
+
+                part = new Participation();
+                part.Course = course;
+                part.Participant = coureur;
+                part.NumDossard = Convert.ToInt32(dico["dossard"][i]);
+                if (dico.Keys.Contains("temps"))
+                {
+                    part.Temps = Convert.ToDouble(dico["temps"][i].Replace('.', ','));
+                }
+
+                repo.Save(part);
             }
         }
 
