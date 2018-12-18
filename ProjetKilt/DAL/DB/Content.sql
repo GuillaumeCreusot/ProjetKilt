@@ -4,6 +4,9 @@ INSERT INTO `coureur` (`id`, `nom`, `prenom`, `mail`, `sexe`, `licence_ffa`, `da
 
 INSERT INTO `course` (`id`, `nom`, `kilometrage`) VALUES (NULL, 'Marathon de Bordeaux', '42'), (NULL, 'Tacourse', '0.75');
 
-INSERT INTO `utilisateur` (`id`, `nom`, `mdp_hash`) VALUES (NULL, 'Utilisateur', 0x15112197219145891274157616724218510817136252737015419615822418216916320823413958144242);
+INSERT INTO `utilisateur` (`id`, `nom`, `mdp_hash`) VALUES (NULL, 'admin', 0x8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918);
 
 INSERT INTO `participation` (`id`, `num_dossard`, `temps`, `participant_id`, `course_id`) VALUES (NULL, '42', '140', '6', '1'), (NULL, '666', '382', '4', '1'), (NULL, '1', '1', '6', '2'), (NULL, '2', '2', '2', '2'), (NULL, '3', '3', '4', '2'), (NULL, '4', '4', '5', '2'), (NULL, '5', '5', '1', '2'), (NULL, '6', '6', '3', '2');
+
+INSERT INTO `utilisateur` (`id`, `nom`, `mdp_hash`) VALUES (NULL, 'Thierry', 0xFA3C1F32BA55A556081202D70C0CA4DA908CFE137A6EDD29310D9F063606A154);
+

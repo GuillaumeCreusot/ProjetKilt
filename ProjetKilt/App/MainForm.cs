@@ -191,16 +191,16 @@ namespace App
                 buttonIdentification.Text = "Se déconnecter";
                 loadingBar(90);
                 labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
-            }
-            if (UtilisateurConnecté.Nom == "Thierry")
-            {
-                Form easter = new Form();
-                PictureBox p = new PictureBox();
-                p.ImageLocation = "thierry+kilt.jpg";
-                p.SizeMode = PictureBoxSizeMode.AutoSize;
-                easter.Controls.Add(p);
-                easter.AutoSize = true;
-                easter.Show();
+                if (UtilisateurConnecté.Nom == "Thierry")
+                {
+                    Form easter = new Form();
+                    PictureBox p = new PictureBox();
+                    p.ImageLocation = "thierry+kilt.jpg";
+                    p.SizeMode = PictureBoxSizeMode.AutoSize;
+                    easter.Controls.Add(p);
+                    easter.AutoSize = true;
+                    easter.Show();
+                }
             }
 
             loadingBar(100);
