@@ -143,6 +143,7 @@
             // 
             // buttonImportParti
             // 
+            this.buttonImportParti.Enabled = false;
             this.buttonImportParti.Location = new System.Drawing.Point(244, 832);
             this.buttonImportParti.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonImportParti.Name = "buttonImportParti";
@@ -151,7 +152,6 @@
             this.buttonImportParti.Text = "Importer Participants";
             this.buttonImportParti.UseVisualStyleBackColor = true;
             this.buttonImportParti.Click += new System.EventHandler(this.buttonImportParti_Click);
-            // 
             // buttonIdentification
             // 
             this.buttonIdentification.Location = new System.Drawing.Point(1611, 20);
@@ -219,7 +219,7 @@
             this.Controls.Add(this.dataGridViewCoureurs);
             this.Controls.Add(this.listBoxCourses);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Kourse en Kilt";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoureurs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

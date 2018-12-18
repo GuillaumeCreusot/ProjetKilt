@@ -11,13 +11,13 @@ namespace Domain
 
         public virtual int ID { get; set; }
         public virtual string Nom { get; set; }
-        public virtual int Kilometrage { get; set; }
+        public virtual double Kilometrage { get; set; }
 
         public virtual IList<Participation> Participations { get; set; }
 
 
 
-        public Course(string nom, int kilometrage) : this()
+        public Course(string nom, double kilometrage) : this()
         {
             Nom = nom;
             Kilometrage = kilometrage;

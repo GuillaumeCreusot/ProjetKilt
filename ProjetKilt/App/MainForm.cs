@@ -20,6 +20,7 @@ namespace App
         private ICoureurRepository CoureurRepo { get; set; }
         private ICourseRepository CourseRepo { get; set; }
         private IParticipationRepository ParticipationRepo { get; set; }
+        private IUtilisateurRepository UserRepo { get; set; }
         private Utilisateur UtilisateurConnecté { get; set; }
         private bool Initializing { get; set; }
 
@@ -33,6 +34,9 @@ namespace App
             CoureurRepo = new CoureurRepository();
             CourseRepo = new CourseRepository();
             ParticipationRepo = new ParticipationRepository();
+            UserRepo = new UtilisateurRepository();
+            if(!UserRepo.Exist(new Utilisateur("admin", "admin")))
+                UserRepo.Save(new Utilisateur("admin", "admin"));
 
 
             foreach (Course course in CourseRepo.GetAll())
@@ -107,8 +111,27 @@ namespace App
                     row.Cells[1].Value = coureur.Nom; //Nom
                     row.Cells[2].Value = coureur.Prenom; //PréNom
                     row.Cells[3].Value = parti.NumDossard; //Dossard
-                    row.Cells[4].Value = (Convert.ToDouble(parti.Temps) != 0) ? Convert.ToDouble(parti.Course.Kilometrage) / Convert.ToDouble(parti.Temps) : 0; //Vitesse Moy
-                    row.Cells[5].Value = (Convert.ToDouble(parti.Course.Kilometrage) != 0) ? Convert.ToDouble(parti.Temps) / Convert.ToDouble(parti.Course.Kilometrage) : 0 ; //Allure Moy
+                    row.Cells[4].Value = ((parti.Temps != 0) ? Math.Truncate(parti.Course.Kilometrage / (parti.Temps / 3600) * 100) / 100 : 0) + " km/h"; //Vitesse Moy
+
+                    if (parti.Course.Kilometrage != 0) //Allure
+                    {
+                        double temps = parti.Temps / parti.Course.Kilometrage;
+                        int h = Convert.ToInt32(temps) / 3600;
+                        temps = temps % 3600;
+                        string allure = ((h / 10 > 1) ? h.ToString() : "0" + h.ToString()) + "h ";
+
+                        int mn = Convert.ToInt32(temps) / 60;
+                        temps = temps % 60;
+                        allure += ((mn / 10 > 1) ? mn.ToString() : "0" + mn.ToString()) + "mn ";
+
+                        temps = Convert.ToInt32(temps);
+                        allure += ((temps / 10 > 1) ? temps.ToString() : "0" + temps.ToString()) + "s / km";
+
+                        row.Cells[5].Value = allure;
+                    }
+                    else
+                        row.Cells[5].Value = "00h 00mn 00s";
+
                     row.Cells[6].Value = coureur.Age; //Age
                     row.Cells[7].Value = coureur.Sexe; //Sexe
                     row.Cells[8].Value = coureur.Mail; //Mail
@@ -143,29 +166,40 @@ namespace App
 
         private void Déconnexion()
         {
+            loadingBar(0);
             UtilisateurConnecté = null;
+            loadingBar(20);
             buttonImportParti.Enabled = false;
+            loadingBar(50);
             buttonIdentification.Text = "S'identifier";
+            loadingBar(80);
             labelConnexion.Text = "";
+            loadingBar(100);
         }
 
         private void Connexion()
         {
+            loadingBar(0);
             Connexion Connexion = new Connexion();
+            loadingBar(50);
             Connexion.ShowDialog();
             if (Connexion.User != null)
             {
                 UtilisateurConnecté = Connexion.User;
+                loadingBar(60);
                 buttonImportParti.Enabled = true;
+                loadingBar(80);
                 buttonIdentification.Text = "Se déconnecter";
+                loadingBar(90);
                 labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
             }
-            
+            loadingBar(100);
+
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            if (!Initializing)
+            if (!Initializing && textBoxSearch.Text != "Rechercher...")
                 ReloadDataGridView();
         }
 

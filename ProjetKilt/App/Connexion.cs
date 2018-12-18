@@ -38,5 +38,11 @@ namespace App
                 labelErreur.Visible = true;
 
         }
+
+        private void textBoxMDP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyChar) == 13)
+                buttonConnexion_Click(buttonConnexion, new EventArgs()); // Yes, I know, but it works right ?
+        }
     }
 }
