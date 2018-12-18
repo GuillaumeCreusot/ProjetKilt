@@ -51,6 +51,7 @@
             this.textBoxMDP.Size = new System.Drawing.Size(242, 20);
             this.textBoxMDP.TabIndex = 1;
             this.textBoxMDP.UseSystemPasswordChar = true;
+            this.textBoxMDP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMDP_KeyPress);
             // 
             // labelConnexion
             // 
