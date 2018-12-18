@@ -23,7 +23,8 @@ namespace DAL
 
         public bool Exist(Participation part)
         {
-            return Session.Query<Participation>().Any(c => c == part);
+            return Session.Query<Participation>().Any(c => c.NumDossard == part.NumDossard
+            && c.Course == part.Course);
         }
 
         public List<Participation> GetAll()
@@ -40,8 +41,13 @@ namespace DAL
 
         public void Save(Participation part)
         {
-            Session.SaveOrUpdate(part);
-            Session.Flush();
+            if (!Exist(part))
+            {
+
+                Session.SaveOrUpdate(part);
+                Session.Flush();
+            }
+
         }
     }
 }

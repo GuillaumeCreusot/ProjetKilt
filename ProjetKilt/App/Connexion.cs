@@ -28,7 +28,6 @@ namespace App
             Utilisateur tentative = new Utilisateur(textBoxID.Text, textBoxMDP.Text);
             bool connexion = UserRepo.Connect(tentative);
 
-
             if (connexion)
             {
                 User = tentative;

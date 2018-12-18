@@ -152,6 +152,7 @@
             this.buttonImportParti.Text = "Importer Participants";
             this.buttonImportParti.UseVisualStyleBackColor = true;
             this.buttonImportParti.Click += new System.EventHandler(this.buttonImportParti_Click);
+            // 
             // buttonIdentification
             // 
             this.buttonIdentification.Location = new System.Drawing.Point(1611, 20);

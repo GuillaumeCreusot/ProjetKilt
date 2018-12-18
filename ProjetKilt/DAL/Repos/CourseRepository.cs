@@ -31,7 +31,7 @@ namespace DAL
 
         public bool Exist(Course course)
         {
-            return Session.Query<Course>().Any(c => c == course);
+            return Session.Query<Course>().Any(c => c.Nom == course.Nom);
         }
 
         public List<Course> GetAll()
@@ -41,7 +41,18 @@ namespace DAL
 
         public void Save(Course course)
         {
-            Session.SaveOrUpdate(course);
+            if (Exist(course))
+            {
+                Course course2 = GetAll().Where((u) => u.Nom == course.Nom).First();
+                course2.Kilometrage = course.Kilometrage;
+                course2.Participations = course.Participations;
+                Session.SaveOrUpdate(course2);
+            }
+            else
+            {
+                Session.SaveOrUpdate(course);
+                
+            }
             Session.Flush();
         }
     }

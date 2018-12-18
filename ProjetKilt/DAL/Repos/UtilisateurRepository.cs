@@ -49,7 +49,16 @@ namespace DAL
 
         public void Save(Utilisateur user)
         {
-            Session.SaveOrUpdate(user);
+            if (Exist(user))
+            {
+
+            }
+            else
+            {
+                Session.SaveOrUpdate(user);
+            }
+
+            
             Session.Flush();
         }
     }

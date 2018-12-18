@@ -40,7 +40,7 @@ namespace DAL
 
         public bool Exist(Coureur coureur)
         {
-            return Session.Query<Coureur>().Any(c => c == coureur);
+            return Session.Query<Coureur>().Any(c => c.Nom == coureur.Nom);
         }
 
         public List<Coureur> GetAll()
@@ -50,7 +50,21 @@ namespace DAL
 
         public void Save(Coureur coureur)
         {
-            Session.SaveOrUpdate(coureur);
+            if (Exist(coureur))
+            {
+                Coureur coureur2 = GetAll().Where((u) => u.Nom == coureur.Nom).First();
+                coureur2.Prenom = coureur.Prenom;
+                coureur2.LicenceFFA = coureur.LicenceFFA;
+                coureur2.Mail = coureur.Mail;
+                coureur2.Sexe = coureur.Sexe;
+                coureur2.Participations = coureur.Participations;
+                Session.SaveOrUpdate(coureur2);
+            }
+            else
+            {
+                Session.SaveOrUpdate(coureur);
+            }
+            
             Session.Flush();
         }
 
