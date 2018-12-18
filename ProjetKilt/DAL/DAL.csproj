@@ -62,8 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSVHandler\ImportCsvBrut.cs" />
-    <Compile Include="IRepos\IRepository.cs" />
     <Compile Include="CSVHandler\ParticipationCSVToDB.cs" />
+    <Compile Include="IRepos\IRepository.cs" />
     <Compile Include="ReposTest\CourseRepoTest.cs" />
     <Compile Include="ReposTest\CoureurRepoTest.cs" />
     <Compile Include="IRepos\IUtilisateurRepository.cs" />

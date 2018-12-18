@@ -145,7 +145,6 @@ namespace App
         {
             UtilisateurConnecté = null;
             buttonImportParti.Enabled = false;
-            buttonImportResultats.Enabled = false;
             buttonIdentification.Text = "S'identifier";
             labelConnexion.Text = "";
         }
@@ -158,7 +157,6 @@ namespace App
             {
                 UtilisateurConnecté = Connexion.User;
                 buttonImportParti.Enabled = true;
-                buttonImportResultats.Enabled = true;
                 buttonIdentification.Text = "Se déconnecter";
                 labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
             }
@@ -181,13 +179,11 @@ namespace App
         {
             FileInfo filePath = FileBrowser.GetFileByBrowser(Application.StartupPath
                 , "les participants de cette course", "csv");
-        }
 
-        private void buttonImportResultats_Click(object sender, EventArgs e)
-        {
-            FileInfo filePath = FileBrowser.GetFileByBrowser(Application.StartupPath
-                , "les résultats de cette course", "csv");
+            Dictionary<string, List<string>> dico = ImportCsvBrut.ImportCsv(filePath.FullName);
+            ParticipationCSVToDB.Import(dico, CourseRepo.GetAll()[listBoxCourses.SelectedIndex]);
 
+            ReloadDataGridView();
         }
 
         private void loadingBar(double value)

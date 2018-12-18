@@ -41,7 +41,6 @@
             this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LicenceFFA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonImportParti = new System.Windows.Forms.Button();
-            this.buttonImportResultats = new System.Windows.Forms.Button();
             this.buttonIdentification = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -53,9 +52,11 @@
             // listBoxCourses
             // 
             this.listBoxCourses.FormattingEnabled = true;
-            this.listBoxCourses.Location = new System.Drawing.Point(13, 13);
+            this.listBoxCourses.ItemHeight = 20;
+            this.listBoxCourses.Location = new System.Drawing.Point(20, 20);
+            this.listBoxCourses.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxCourses.Name = "listBoxCourses";
-            this.listBoxCourses.Size = new System.Drawing.Size(144, 602);
+            this.listBoxCourses.Size = new System.Drawing.Size(214, 924);
             this.listBoxCourses.TabIndex = 0;
             this.listBoxCourses.SelectedIndexChanged += new System.EventHandler(this.listBoxCourses_SelectedIndexChanged);
             // 
@@ -73,10 +74,11 @@
             this.Sexe,
             this.Mail,
             this.LicenceFFA});
-            this.dataGridViewCoureurs.Location = new System.Drawing.Point(163, 139);
+            this.dataGridViewCoureurs.Location = new System.Drawing.Point(244, 214);
+            this.dataGridViewCoureurs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewCoureurs.Name = "dataGridViewCoureurs";
             this.dataGridViewCoureurs.ReadOnly = true;
-            this.dataGridViewCoureurs.Size = new System.Drawing.Size(1044, 331);
+            this.dataGridViewCoureurs.Size = new System.Drawing.Size(1566, 509);
             this.dataGridViewCoureurs.TabIndex = 1;
             // 
             // Classement
@@ -141,29 +143,21 @@
             // 
             // buttonImportParti
             // 
-            this.buttonImportParti.Location = new System.Drawing.Point(163, 541);
+            this.buttonImportParti.Location = new System.Drawing.Point(244, 832);
+            this.buttonImportParti.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonImportParti.Name = "buttonImportParti";
-            this.buttonImportParti.Size = new System.Drawing.Size(133, 23);
+            this.buttonImportParti.Size = new System.Drawing.Size(200, 35);
             this.buttonImportParti.TabIndex = 2;
             this.buttonImportParti.Text = "Importer Participants";
             this.buttonImportParti.UseVisualStyleBackColor = true;
             this.buttonImportParti.Click += new System.EventHandler(this.buttonImportParti_Click);
             // 
-            // buttonImportResultats
-            // 
-            this.buttonImportResultats.Location = new System.Drawing.Point(404, 541);
-            this.buttonImportResultats.Name = "buttonImportResultats";
-            this.buttonImportResultats.Size = new System.Drawing.Size(133, 23);
-            this.buttonImportResultats.TabIndex = 3;
-            this.buttonImportResultats.Text = "Importer Résultats";
-            this.buttonImportResultats.UseVisualStyleBackColor = true;
-            this.buttonImportResultats.Click += new System.EventHandler(this.buttonImportResultats_Click);
-            // 
             // buttonIdentification
             // 
-            this.buttonIdentification.Location = new System.Drawing.Point(1074, 13);
+            this.buttonIdentification.Location = new System.Drawing.Point(1611, 20);
+            this.buttonIdentification.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonIdentification.Name = "buttonIdentification";
-            this.buttonIdentification.Size = new System.Drawing.Size(133, 23);
+            this.buttonIdentification.Size = new System.Drawing.Size(200, 35);
             this.buttonIdentification.TabIndex = 4;
             this.buttonIdentification.Text = "S\'identifier";
             this.buttonIdentification.UseVisualStyleBackColor = true;
@@ -171,9 +165,10 @@
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(163, 113);
+            this.textBoxSearch.Location = new System.Drawing.Point(244, 174);
+            this.textBoxSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(112, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(166, 26);
             this.textBoxSearch.TabIndex = 6;
             this.textBoxSearch.Text = "Rechercher...";
             this.textBoxSearch.Click += new System.EventHandler(this.textBoxSearch_Click);
@@ -182,17 +177,19 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(585, 541);
+            this.progressBar.Location = new System.Drawing.Point(878, 832);
+            this.progressBar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(622, 23);
+            this.progressBar.Size = new System.Drawing.Size(933, 35);
             this.progressBar.TabIndex = 7;
             // 
             // comboBoxFilters
             // 
             this.comboBoxFilters.FormattingEnabled = true;
-            this.comboBoxFilters.Location = new System.Drawing.Point(1086, 113);
+            this.comboBoxFilters.Location = new System.Drawing.Point(1629, 174);
+            this.comboBoxFilters.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxFilters.Name = "comboBoxFilters";
-            this.comboBoxFilters.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFilters.Size = new System.Drawing.Size(180, 28);
             this.comboBoxFilters.TabIndex = 9;
             this.comboBoxFilters.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilters_SelectedIndexChanged);
             this.comboBoxFilters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxFilters_KeyPress);
@@ -201,26 +198,25 @@
             // 
             this.labelConnexion.AutoSize = true;
             this.labelConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelConnexion.Location = new System.Drawing.Point(163, 13);
+            this.labelConnexion.Location = new System.Drawing.Point(244, 20);
+            this.labelConnexion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelConnexion.Name = "labelConnexion";
-            this.labelConnexion.Size = new System.Drawing.Size(0, 24);
+            this.labelConnexion.Size = new System.Drawing.Size(0, 32);
             this.labelConnexion.TabIndex = 10;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1219, 623);
+            this.ClientSize = new System.Drawing.Size(1828, 958);
             this.Controls.Add(this.labelConnexion);
             this.Controls.Add(this.comboBoxFilters);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonIdentification);
-            this.Controls.Add(this.buttonImportResultats);
             this.Controls.Add(this.buttonImportParti);
             this.Controls.Add(this.dataGridViewCoureurs);
             this.Controls.Add(this.listBoxCourses);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoureurs)).EndInit();
@@ -234,7 +230,6 @@
         private System.Windows.Forms.ListBox listBoxCourses;
         private System.Windows.Forms.DataGridView dataGridViewCoureurs;
         private System.Windows.Forms.Button buttonImportParti;
-        private System.Windows.Forms.Button buttonImportResultats;
         private System.Windows.Forms.Button buttonIdentification;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.ProgressBar progressBar;
