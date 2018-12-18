@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DAL;
 using Domain;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace App
 {
@@ -168,6 +169,19 @@ namespace App
         {
             if (!Initializing)
                 ReloadDataGridView();
+        }
+
+        private void buttonImportParti_Click(object sender, EventArgs e)
+        {
+            FileInfo filePath = FileBrowser.GetFileByBrowser(Application.StartupPath
+                , "les participants de cette course", "csv");
+        }
+
+        private void buttonImportResultats_Click(object sender, EventArgs e)
+        {
+            FileInfo filePath = FileBrowser.GetFileByBrowser(Application.StartupPath
+                , "les résultats de cette course", "csv");
+
         }
     }
 }
