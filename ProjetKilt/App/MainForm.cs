@@ -78,16 +78,15 @@ namespace App
 
         private void ReloadDataGridView()
         {
-            loadingBar(0);
             dataGridViewCoureurs.Rows.Clear();
+            loadingBar(0);
 
             Course course = CourseRepo.GetAll()[listBoxCourses.SelectedIndex];
-            loadingBar(25);
 
             List<Participation> Participations = ParticipationRepo.GetPartiFromCourse(course);
-            loadingBar(50);
             Participations = Participations.OrderBy( e => e.Temps).ToList();
-            loadingBar(75);
+
+            loadingBar(25);
 
             for (int i = 0; i<Participations.Count; i++)
             {
@@ -139,7 +138,7 @@ namespace App
                     dataGridViewCoureurs.Rows.Add(row);
                 }
 
-                loadingBar(75 + 25 * ((i + 1) / Participations.Count));
+                loadingBar(25 + 75 * ((i + 1) / Participations.Count));
             }
 
 
