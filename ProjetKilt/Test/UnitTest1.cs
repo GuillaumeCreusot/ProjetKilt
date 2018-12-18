@@ -16,7 +16,7 @@ namespace Test
             Assert.IsTrue(coureur.Age == 21);
 
             Coureur coureur2 = new Coureur("test", "test", "TEST", "test@gmail.com", "test",
-                new DateTime(1997, 12, 16));
+                new DateTime(1997, 12, 18));
 
             Assert.IsTrue(coureur2.Age == 20);
         }

@@ -170,9 +170,7 @@ namespace App
             UtilisateurConnecté = null;
             loadingBar(20);
             buttonImportParti.Enabled = false;
-            loadingBar(40);
-            buttonImportResultats.Enabled = false;
-            loadingBar(60);
+            loadingBar(50);
             buttonIdentification.Text = "S'identifier";
             loadingBar(80);
             labelConnexion.Text = "";
@@ -190,10 +188,9 @@ namespace App
                 UtilisateurConnecté = Connexion.User;
                 loadingBar(60);
                 buttonImportParti.Enabled = true;
-                buttonImportResultats.Enabled = true;
-                loadingBar(70);
+                loadingBar(80);
                 buttonIdentification.Text = "Se déconnecter";
-                loadingBar(85);
+                loadingBar(90);
                 labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
             }
             loadingBar(100);
@@ -216,13 +213,11 @@ namespace App
         {
             FileInfo filePath = FileBrowser.GetFileByBrowser(Application.StartupPath
                 , "les participants de cette course", "csv");
-        }
 
-        private void buttonImportResultats_Click(object sender, EventArgs e)
-        {
-            FileInfo filePath = FileBrowser.GetFileByBrowser(Application.StartupPath
-                , "les résultats de cette course", "csv");
+            Dictionary<string, List<string>> dico = ImportCsvBrut.ImportCsv(filePath.FullName);
+            ParticipationCSVToDB.Import(dico, CourseRepo.GetAll()[listBoxCourses.SelectedIndex]);
 
+            ReloadDataGridView();
         }
 
         private void loadingBar(double value)
