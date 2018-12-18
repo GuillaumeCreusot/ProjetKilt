@@ -13,7 +13,7 @@ namespace Domain
         public virtual Coureur Participant { get; set; }
         public virtual Course Course { get; set; }
         public virtual int NumDossard { get; set; }
-        public virtual int Temps { get; set; }
+        public virtual double Temps { get; set; }
 
 
 

@@ -29,7 +29,7 @@ create table course (
 create table participation (
 	id integer not null primary key auto_increment,
 	num_dossard int null,
-	temps int null,
+	temps double null,
 	participant_id int null,
 	course_id int null,
 	constraint fk_coureur_participation foreign key(participant_id) references coureur(id),
