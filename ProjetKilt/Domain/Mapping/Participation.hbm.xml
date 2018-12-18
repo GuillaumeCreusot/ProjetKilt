@@ -8,8 +8,8 @@
     <id name="ID" column="id" type="int">
       <generator class="native"></generator>
     </id>
-    <property name="NumDossard" column="num_dossard" not-null="true"/>
-    <property name="Temps" column="temps" not-null="true"/>
+    <property name="NumDossard" column="num_dossard"/>
+    <property name="Temps" column="temps"/>
 
     <many-to-one name="Participant" column="participant_id" foreign-key="id" cascade="save-update"/>
     <many-to-one name="Course" column="course_id" foreign-key="id" cascade="save-update"/>

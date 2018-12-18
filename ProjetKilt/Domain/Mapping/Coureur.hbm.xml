@@ -11,7 +11,7 @@
     <property name="Nom" column="nom" not-null="true"/>
     <property name="Prenom" column="prenom" not-null="true"/>
     <property name="Mail" column="mail" not-null="true"/>
-    <property name="LicenceFFA" column="licence_ffa" not-null="true"/>
+    <property name="LicenceFFA" column="licence_ffa"/>
     <property name="Sexe" column="sexe" not-null="true"/>
     <property name="DateNaissance" column="date_naissance" not-null="true"/>
 

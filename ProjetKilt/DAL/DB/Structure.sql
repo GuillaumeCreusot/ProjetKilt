@@ -16,7 +16,7 @@ create table coureur (
 	prenom varchar(100) not null,
 	mail varchar(100) not null,
 	sexe varchar(100) not null,
-	licence_ffa varchar(100) not null,
+	licence_ffa varchar(100),
     date_naissance datetime not null
 );
 
@@ -28,8 +28,8 @@ create table course (
 
 create table participation (
 	id integer not null primary key auto_increment,
-	num_dossard int not null,
-	temps int not null,
+	num_dossard int null,
+	temps int null,
 	participant_id int null,
 	course_id int null,
 	constraint fk_coureur_participation foreign key(participant_id) references coureur(id),
