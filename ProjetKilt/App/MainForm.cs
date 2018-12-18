@@ -16,12 +16,13 @@ namespace App
 {
     public partial class MainForm : Form
     {
-
         private ICoureurRepository CoureurRepo { get; set; }
         private ICourseRepository CourseRepo { get; set; }
-        private IParticipationRepository ParticipationRepo { get; set; }
+        private IParticipationRepository ParticipationRepo { get; set; } 
         private IUtilisateurRepository UserRepo { get; set; }
+
         private Utilisateur UtilisateurConnecté { get; set; }
+
         private bool Initializing { get; set; }
 
 
@@ -30,22 +31,20 @@ namespace App
             InitializeComponent();
 
             Initializing = true;
-
+            
             CoureurRepo = new CoureurRepository();
             CourseRepo = new CourseRepository();
             ParticipationRepo = new ParticipationRepository();
             UserRepo = new UtilisateurRepository();
-            if(!UserRepo.Exist(new Utilisateur("admin", "admin")))
-                UserRepo.Save(new Utilisateur("admin", "admin"));
 
-
+            // import all courses to initialize the listBox
             foreach (Course course in CourseRepo.GetAll())
             {
                 listBoxCourses.Items.Add(course.Nom);
                 listBoxCourses.SelectedIndex = 0;
             }
 
-
+            //Filtre pour les participant
             comboBoxFilters.Items.Add("Aucun filtre");
             for (int i = 0; i < 12; i++)
             {
@@ -77,12 +76,15 @@ namespace App
 
 
         private void ReloadDataGridView()
-        {
+        {  
             dataGridViewCoureurs.Rows.Clear();
+
             loadingBar(0);
 
+            //select current course from bd
             Course course = CourseRepo.GetAll()[listBoxCourses.SelectedIndex];
 
+            // get participant of this course
             List<Participation> Participations = ParticipationRepo.GetPartiFromCourse(course);
             Participations = Participations.OrderBy( e => e.Temps).ToList();
 
@@ -92,12 +94,14 @@ namespace App
             {
                 Participation parti = Participations[i];
 
+                // Coureur associed with Participation
                 Coureur coureur = CoureurRepo.GetCoureurFromParti(parti);
 
+                // search argument && filter apply
                 string query = textBoxSearch.Text;
                 int indexFilter = comboBoxFilters.SelectedIndex;
                 string filter = comboBoxFilters.Items[indexFilter].ToString();
-                
+
                 if ((query == "" || query == "Rechercher..." ||
                     Regex.IsMatch(coureur.Nom.ToLower(), $"^{query.ToLower()}" ) ||
                     Regex.IsMatch(coureur.Prenom.ToLower(), $"^{query.ToLower()}")  ||
@@ -178,10 +182,13 @@ namespace App
 
         private void Connexion()
         {
+            //Connexion Form
             loadingBar(0);
             Connexion Connexion = new Connexion();
             loadingBar(50);
             Connexion.ShowDialog();
+
+            //Connexion handle
             if (Connexion.User != null)
             {
                 UtilisateurConnecté = Connexion.User;
@@ -191,11 +198,13 @@ namespace App
                 buttonIdentification.Text = "Se déconnecter";
                 loadingBar(90);
                 labelConnexion.Text = "Vous êtes connecté en tant que " + UtilisateurConnecté.Nom;
+
+                // something ...
                 if (UtilisateurConnecté.Nom == "Thierry")
                 {
                     Form easter = new Form();
                     PictureBox p = new PictureBox();
-                    p.ImageLocation = "thierry+kilt.jpg";
+                    p.ImageLocation = "Ressources\\thierry+kilt.jpg";
                     p.SizeMode = PictureBoxSizeMode.AutoSize;
                     easter.Controls.Add(p);
                     easter.AutoSize = true;

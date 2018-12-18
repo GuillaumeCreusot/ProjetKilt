@@ -14,7 +14,14 @@ namespace App
 {
     public partial class Connexion : Form
     {
+        /// <summary>
+        /// User connected
+        /// </summary>
         public Utilisateur User { get; private set; }
+
+        /// <summary>
+        /// Repository to communicate with bd
+        /// </summary>
         private IUtilisateurRepository UserRepo { get; set; }
 
         public Connexion()
@@ -25,6 +32,7 @@ namespace App
 
         private void buttonConnexion_Click(object sender, EventArgs e)
         {
+            //tentative de connexion
             Utilisateur tentative = new Utilisateur(textBoxID.Text, textBoxMDP.Text);
             bool connexion = UserRepo.Connect(tentative);
 
@@ -40,6 +48,7 @@ namespace App
 
         private void textBoxMDP_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // if key = ENTER
             if (Convert.ToInt32(e.KeyChar) == 13)
                 buttonConnexion_Click(buttonConnexion, new EventArgs()); // Yes, I know, but it works right ?
         }

@@ -9,8 +9,14 @@ namespace DAL
 {
     public class ParticipationCSVToDB
     {
+        /// <summary>
+        /// This function convert the data give by ImportCsvBrut to Participation and transfer it to db
+        /// </summary>
+        /// <param name="dico"></param>
+        /// <param name="course"></param>
         public static void Import(Dictionary<string, List<string>> dico, Course course)
         {
+
             ParticipationCSVToDB.CSVContainsRightColumnLabel(dico);
 
             ParticipationCSVToDB.CSVContainsColumnWithSameNumberOfElement(dico);
@@ -18,6 +24,7 @@ namespace DAL
             Participation part;
             Coureur coureur;
 
+            // Save data in db
             IParticipationRepository repo = new ParticipationRepository();
 
             for(int i = 0; i < dico[dico.Keys.First()].Count; i++)
@@ -43,6 +50,7 @@ namespace DAL
             }
         }
 
+        //Verify if the data contains same number of element in each column
         private static bool CSVContainsColumnWithSameNumberOfElement(Dictionary<string, List<string>> dico)
         {
             bool test = true;
@@ -69,6 +77,11 @@ namespace DAL
             return true;
         }
 
+        /// <summary>
+        /// Verify if the column label nom,prenom,annee_naissance,sexe ,courriel,license,dossard et temps sont présent
+        /// </summary>
+        /// <param name="dico"></param>
+        /// <returns></returns>
         private static bool CSVContainsRightColumnLabel(Dictionary<string, List<string>> dico)
         {
             if (!((dico.ContainsKey("dossard")
@@ -82,7 +95,7 @@ namespace DAL
             {
                 throw new Exception("Dans le Csv, il manque une colonne pour l'import des résultats" +
                     " (\"nom\",\"prenom\",\"annee_naissance\",\"sexe\"" +
-                    ",\"courriel\",\"license\",\"dossard\" et \"temps\"(optionel)");
+                    ",\"courriel\",\"license\",\"dossard\" et \"temps\"");
                 return false;
             }
             return true;
