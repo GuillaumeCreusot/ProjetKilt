@@ -141,6 +141,7 @@
             // 
             // buttonImportParti
             // 
+            this.buttonImportParti.Enabled = false;
             this.buttonImportParti.Location = new System.Drawing.Point(163, 541);
             this.buttonImportParti.Name = "buttonImportParti";
             this.buttonImportParti.Size = new System.Drawing.Size(133, 23);
@@ -151,6 +152,7 @@
             // 
             // buttonImportResultats
             // 
+            this.buttonImportResultats.Enabled = false;
             this.buttonImportResultats.Location = new System.Drawing.Point(404, 541);
             this.buttonImportResultats.Name = "buttonImportResultats";
             this.buttonImportResultats.Size = new System.Drawing.Size(133, 23);
@@ -222,7 +224,7 @@
             this.Controls.Add(this.listBoxCourses);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Kourse en Kilt";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCoureurs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
