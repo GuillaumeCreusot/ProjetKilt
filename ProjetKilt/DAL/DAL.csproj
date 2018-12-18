@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImportCsvBrut.cs" />
     <Compile Include="IRepos\IRepository.cs" />
     <Compile Include="ReposTest\CourseRepoTest.cs" />
     <Compile Include="ReposTest\CoureurRepoTest.cs" />
