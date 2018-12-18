@@ -74,12 +74,16 @@ namespace App
 
         private void ReloadDataGridView()
         {
+            loadingBar(0);
             dataGridViewCoureurs.Rows.Clear();
 
             Course course = CourseRepo.GetAll()[listBoxCourses.SelectedIndex];
+            loadingBar(25);
 
             List<Participation> Participations = ParticipationRepo.GetPartiFromCourse(course);
+            loadingBar(50);
             Participations = Participations.OrderBy( e => e.Temps).ToList();
+            loadingBar(75);
 
             for (int i = 0; i<Participations.Count; i++)
             {
@@ -99,18 +103,20 @@ namespace App
                     (coureur.Age >= (indexFilter - 1) * 10 && coureur.Age <= indexFilter * 10)))
                 {
                     DataGridViewRow row = (DataGridViewRow)dataGridViewCoureurs.Rows[0].Clone();
-                    row.Cells[0].Value = i + 1; //Classementparti.NumDossard
+                    row.Cells[0].Value = i + 1; //Classement
                     row.Cells[1].Value = coureur.Nom; //Nom
                     row.Cells[2].Value = coureur.Prenom; //PréNom
                     row.Cells[3].Value = parti.NumDossard; //Dossard
-                    row.Cells[4].Value = Convert.ToDouble(parti.Course.Kilometrage) / Convert.ToDouble(parti.Temps); //Vitesse Moy
-                    row.Cells[5].Value = Convert.ToDouble(parti.Temps) / Convert.ToDouble(parti.Course.Kilometrage); ; //Allure Moy
+                    row.Cells[4].Value = (Convert.ToDouble(parti.Temps) != 0) ? Convert.ToDouble(parti.Course.Kilometrage) / Convert.ToDouble(parti.Temps) : 0; //Vitesse Moy
+                    row.Cells[5].Value = (Convert.ToDouble(parti.Course.Kilometrage) != 0) ? Convert.ToDouble(parti.Temps) / Convert.ToDouble(parti.Course.Kilometrage) : 0 ; //Allure Moy
                     row.Cells[6].Value = coureur.Age; //Age
                     row.Cells[7].Value = coureur.Sexe; //Sexe
                     row.Cells[8].Value = coureur.Mail; //Mail
                     row.Cells[9].Value = coureur.LicenceFFA; //Licence FFA
                     dataGridViewCoureurs.Rows.Add(row);
                 }
+
+                loadingBar(75 + 25 * ((i + 1) / Participations.Count));
             }
 
 
@@ -182,6 +188,19 @@ namespace App
             FileInfo filePath = FileBrowser.GetFileByBrowser(Application.StartupPath
                 , "les résultats de cette course", "csv");
 
+        }
+
+        private void loadingBar(double value)
+        {
+            if(value >= 0 && value <= 100)
+            {
+                progressBar.Value = Convert.ToInt32(Math.Ceiling(value));
+            }
+        }
+
+        private void comboBoxFilters_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

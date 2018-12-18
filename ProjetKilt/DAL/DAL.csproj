@@ -61,8 +61,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImportCsvBrut.cs" />
+    <Compile Include="CSVHandler\ImportCsvBrut.cs" />
     <Compile Include="IRepos\IRepository.cs" />
+    <Compile Include="CSVHandler\ParticipationCSVToDB.cs" />
     <Compile Include="ReposTest\CourseRepoTest.cs" />
     <Compile Include="ReposTest\CoureurRepoTest.cs" />
     <Compile Include="IRepos\IUtilisateurRepository.cs" />
@@ -94,9 +95,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CSVHandler\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

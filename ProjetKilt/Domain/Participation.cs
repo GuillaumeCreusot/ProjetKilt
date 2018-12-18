@@ -23,7 +23,7 @@ namespace Domain
 
 
 
-        public Participation(Coureur participant, Course course, int numDossard, int temps)
+        public Participation(Coureur participant, Course course, int numDossard, double temps)
         {
             Participant = participant;
             Course = course;
